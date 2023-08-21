@@ -1,0 +1,251 @@
+  <html>
+    <head>
+      <title>home</title>
+      <style>
+      
+        @keyframes radical {
+          0% {transform: rotate3d(1, 1, 1, 0deg);}
+          100% {transform: rotate3d(1, 1, 1, 360deg);}
+        }
+        
+        @keyframes cloud {
+          0% {transform: rotate3d(1, 0, 0, 0deg);}
+          50% {transform: rotate3d(1, 0, 0, -45deg);}
+          100% {transform: rotate3d(1, 0, 0, 0deg);}
+        }
+        
+        @keyframes speech {
+          0% {transform: rotate3d(0, 1, 0, 61.7deg);}
+          100% {transform: rotate3d(0, 1, 0, -118.3deg);}
+        }
+        
+        @keyframes perspec {
+          0% {perspective: 125px;}
+          50% {perspective: 160px;}
+          100% {perspective: 125px;}
+        }
+        
+        @keyframes scroll {
+          0% {background-size: 100px 100px;background-position: 0px 0px;}
+          100% {background-size: 100px 100px;background-position: 100px 100px;}
+        }
+      
+        body {
+          background-color: #ff0099;
+        }
+        
+        body * {
+          position: absolute;
+        }
+        
+        #page {
+          width: 640;
+          height: 480;
+          background-color: blue;
+          top: 32;
+          left: 180px;
+          animation-name: perspec;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          font-size: 16px;
+        }
+        
+        #page * {
+          position: absolute;
+          margin-left: -8px;
+          margin-top: -8px;
+          font-size: 16px; 
+        }
+  
+        #speech {
+          width: 123;
+          height: 80;
+          background-color: white;
+          left: 487;
+          top: 320;
+          z-index: 200;
+          box-shadow: 0px 0px 30px black;
+          animation-name: speech;
+          animation-duration: 6s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
+        
+        #extspeech {
+          perspective: 1000px;
+          z-index: 101;
+        }
+        
+        #penisy {
+          width: 150;
+          height: 120;
+          top: 375;
+          left: 490;
+          background-image: url('images/penisy/front_house_penisy.png');
+          background-size: 100% 100%;
+          z-index: 40;
+        }
+        
+        .bricks {
+          background-image: url('images/textures/bricks.png');
+          background-size:100px 100px;
+          
+          animation-name: scroll;
+          animation-duration: 4s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
+        
+        .roof {
+          background-image: url('images/textures/roofing.png');
+          background-size: 100px 100px;
+          z-index: 2;
+          box-shadow: 0px 0px 12px black;
+        }
+        
+        .door {
+          background-image: url('images/textures/door.png');
+          background-size: 100% 100%;
+        }
+        
+      #bricksone {
+        top: 87px;
+        left: 50px;
+        width: 200px;
+        height: 400px;
+      }
+      
+      #brickstwo {
+        top: 47px;
+        left: 380px;
+        width: 140px;
+        height: 440px;
+      }
+      
+      #bricksthree {
+        top: 387px;
+        left: 240px;
+        width: 150px;
+        height: 100px;
+      }
+      
+      #roofone {
+        top: 65px;
+        left: 25px;
+        width: 250px;
+        height: 130px;
+        transform: rotate3d(1, 0, 0, 10deg);
+      }
+      
+      #rooftwo {
+        top: 217px;
+        left: 330px;
+        width: 300px;
+        height: 90px;
+        transform: rotate3d(1, 0, 0, 10deg);
+      }
+      
+      #roofthree {
+        top: 30px;
+        left: 375px;
+        width: 160px;
+        height: 90px;
+        transform: rotate3d(1, 0, 0, 5deg);
+      }
+      
+      #doorone {
+        top: 357px;
+        left: 90px;
+        width: 90px;
+        height: 130px;
+      }
+      
+      #doortwo {
+        top: 347px;
+        left: 390px;
+        width: 90px;
+        height: 140px;
+      }
+      
+      #doorthree {
+        top: 157px;
+        left: 440px;
+        width: 60px;
+        height: 60px;
+      }
+      
+      #cloud {
+        width: 220px;
+        height: 160px;
+        animation-name: cloud;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      
+      marquee {
+        height:160px;
+        width: calc(100% + 280px);
+        left: -220px;
+      }
+      
+      #extreme {
+        top: -6px;
+        z-index:100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation-name: radical;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        width: 90px;
+      }
+      #extextreme {
+        perspective: 100px;
+        z-index: 10;
+      }
+      
+      #floor {
+        width: 750px;
+        height:80px;
+        background-image: url('images/textures/grass.jpg');
+        top: 85%;
+        left: -50px;
+        transform-style: preserve-3d;
+        transform: rotateX(45deg);
+        z-index:-1;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <script>
+      function doorone() {
+        window.location.href = "livingroom.html";
+      }
+      function doortwo() {
+        window.location.href = "placeholder.html";
+      }
+      function doorthree() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+    <div id="extextreme"><p id="extreme">penis world</p></div>
+    <div id="page">
+    <div id="extspeech"><div id="speech">welcome to my house! please click on one of these fucking doors!</div></div>
+    <div id="penisy"></div>
+    <div class="bricks" id="bricksone" ></div>
+    <div class="bricks" id="brickstwo" ></div>
+    <div class="bricks" id="bricksthree" ></div>
+    <div class="roof" id="roofone" ></div>
+    <div class="roof" id="rooftwo" ></div>
+    <div class="roof" id="roofthree" ></div>
+    <button class="door" id="doorone" onclick="doorone()"></button>
+    <button class="door" id="doortwo" onclick="doortwo()"></button>
+    <button class="door" id="doorthree" onclick="doorthree()"></button>
+    <div id="floor"></div>
+    <marquee scrollamount="25"><img id="cloud" src="images/textures/cloud.png" alt="cloud"></marquee>
+    
+    </div>
+    </body>
+</html>
