@@ -1,5 +1,8 @@
   <html>
   <head>
+
+
+
     <title>home</title>
     <style>
       
@@ -55,7 +58,7 @@
           position: absolute;
           margin-left: -8px;
           margin-top: -8px;
-          font-size: 16px; 
+          font-size: 16px;
         }
   
         #speech {
@@ -85,21 +88,21 @@
         }
         
         .bricks {
-          background-image: url('images/textures/bricks.png');
+          background-image: url('images/foreground/bricks.png');
           background-size:100px 100px;
           
           animation: scroll 4s linear infinite;
         }
         
         .roof {
-          background-image: url('images/textures/roofing.png');
+          background-image: url('images/foreground/roofing.png');
           background-size: 100px 100px;
           z-index: 2;
           box-shadow: 0px 0px 12px black;
         }
         
         .door {
-          background-image: url('images/textures/door.png');
+          background-image: url('images/foreground/door.png');
           background-size: 100% 100%;
         }
         
@@ -181,6 +184,13 @@
         left: -220px;
       }
       
+      #marqueewall {
+        width: 220px;
+        height: 400px;
+        background-color: #ff0099;
+        left: -260px;
+      }
+      
       #extreme {
         top: -6px;
         z-index:100;
@@ -196,12 +206,14 @@
       #floor {
         width: 750px;
         height:80px;
-        background-image: url('images/textures/grass.jpg');
+        background-image: url('images/foreground/grass.jpg');
+        background-size: 100px 100px;
         top: 85%;
         left: -50px;
         transform-style: preserve-3d;
         transform: rotateX(45deg);
         z-index:-1;
+        animation: scroll 5s linear infinite;
       }
       
     </style>
@@ -212,7 +224,7 @@
         window.location.href = "livingroom.html";
       }
       function doortwo() {
-        window.location.href = "placeholder.html";
+        window.location.href = "kitchen.html";
       }
       function doorthree() {
         window.location.href = "placeholder.html";
@@ -232,7 +244,9 @@
       <button class="door" id="doortwo" onclick="doortwo()"></button>
       <button class="door" id="doorthree" onclick="doorthree()"></button>
       <div id="floor"></div>
-      <marquee scrollamount="25"><img id="cloud" src="images/textures/cloud.png" alt="cloud"></marquee>
+      <marquee scrollamount="25"><img id="cloud" src="images/foreground/cloud.png" alt="cloud"> </marquee>
+      <div id="marqueewall"></div>
+      
       
     </div>
   </body>

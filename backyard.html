@@ -1,9 +1,10 @@
 <html>
   <head>
     <title>home</title>
+    <!--todo: add pink lawn flamingos-->
     <style>
     
-    @keyframes radical {
+  	@keyframes radical {
           0% {transform: rotate3d(1, 1, 1, 0deg);}
           100% {transform: rotate3d(1, 1, 1, 360deg);}
         }
@@ -33,7 +34,7 @@
         
         @keyframes scroll {
           0% {background-position: 0px 0px;}
-          100% {background-position: -300px 0px;}
+          100% {background-position: -400px 0px;}
         }
         
         @keyframes pluff {
@@ -96,30 +97,31 @@
         z-index:100;
         font-family: "Comic Sans MS", "Comic Sans", cursive;
         animation: radical 4s linear infinite;
+        width: 90px;
       }
       
       .bricks {
-        background-image: url('images/textures/bricks.png');
+        background-image: url('images/foreground/bricks.png');
         background-size:100px 100px;
       }
       
       .roof {
-        background-image: url('images/textures/roofing.png');
+        background-image: url('images/foreground/roofing.png');
         background-size: 100px 100px;
         z-index: 2;
         box-shadow: 0px 0px 12px black;
       }
       
       .door {
-        background-image: url('images/textures/door.png');
+        background-image: url('images/foreground/door.png');
         background-size: 100% 100%;
       }
       
       #floor {
         width: 900px;
         height:250px;
-        background-image: url('images/textures/grass.jpg');
-        background-size: 300px 300px;
+        background-image: url('images/foreground/grass.jpg');
+        background-size: 400px 300px;
         top: calc(100% - 140px);
         left: 0px;
         top: 300px;
@@ -135,7 +137,7 @@
         height: 350px;
         top: 190px;
         left: 300px;
-        background: url('images/textures/clipart_ladder.png');
+        background: url('images/foreground/clipart_ladder.png');
         background-size:100% 100%;
         z-index: 1;
       }
@@ -151,11 +153,11 @@
       
       #fence {
         width: 700px;
-        height: 180px;
-        background-image: url('images/textures/fence.png');
-        background-size: 300px 100%;
+        height: 100px;
+        background-image: url('images/foreground/fence.png');
+        background-size: 400px 100%;
         transform-style: preserve-3d;
-        top: 150px;
+        top: 230px;
         left: 100px;
         transform-origin: bottom;
 
@@ -166,7 +168,7 @@
       #pool {
         width: 600px;
         height: 180px;
-        background-image: url('images/textures/pool.png');
+        background-image: url('images/foreground/pool.png');
         background-size: 100% 100%;
         top: 350px;
         left: 140;
@@ -174,6 +176,36 @@
         transform-style: preserve-3d;
         transform: rotateX(45deg);
       }
+      
+      #lawnchair {
+        width: 180px;
+        height: 180px;
+        background-image: url('images/foreground/plastic_lawn_chair.png');
+        background-size: 100% 100%;
+        top: 250px;
+        left: 670px;
+        z-index: 11;
+        transform-style: preserve-3d;
+        transform: rotateY(-13deg);
+      }
+      
+      #pyramids {
+        width: 430px;
+        height: 360px;
+        background-image: url('images/background/pyramids.png');
+        background-size: 100% 100%;
+        top: 70px;
+        left: 80px;
+        z-index: -10;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg);
+      }
+
+      #extextreme {
+        perspective: 100px;
+        z-index: 10;
+      }
+      
       
     </style>
     <script>
@@ -189,11 +221,14 @@
     </script>
   </head>
   <body>
-    <p id="extreme">backyard</p>
+    <div id="extextreme"><p id="extreme">backyard</p></div>
     <div id="page">
     <div id="floor"></div>
     <div id="doorone" class="door" onclick="doorone();"></div>
     <div id="fence"></div>
     <div id="pool"></div>
+    <div id="lawnchair"></div>
+    <div id="pyramids"></div>
+    <div id="lawnflamingos"></div>
     </div>
   </body>

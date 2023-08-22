@@ -1,0 +1,321 @@
+<html>
+  <head>
+    <title>home</title>
+    <style>
+      @keyframes radical {
+        0% {
+          transform: rotate3d(1, 1, 1, 0deg);
+        }
+
+        100% {
+          transform: rotate3d(1, 1, 1, 360deg);
+        }
+      }
+
+      @keyframes skew {
+        0% {
+          height: 120
+        }
+
+        50% {
+          height: 160
+        }
+
+        100% {
+          height: 120
+        }
+      }
+
+      @keyframes speech {
+        0% {
+          transform: rotate3d(0, 1, 0, 61.7deg);
+        }
+
+        100% {
+          transform: rotate3d(0, 1, 0, -118.3deg);
+        }
+      }
+
+      @keyframes perspec {
+        0% {
+          perspective: 280px;
+        }
+
+        50% {
+          perspective: 260px;
+        }
+
+        100% {
+          perspective: 280px;
+        }
+      }
+
+      @keyframes perspec2 {
+        0% {
+          transform: rotateX(2deg);
+        }
+
+        50% {
+          transform: rotateX(-13deg);
+        }
+
+        100% {
+          transform: rotateX(2deg);
+        }
+      }
+
+      @keyframes scroll {
+        0% {
+          background-position: 0px -400px;
+        }
+
+        25% {
+          background-position: -400px 0px;
+        }
+
+        50% {
+          background-position: 0px 400px;
+        }
+
+        75% {
+          background-position: 400px 0px;
+        }
+
+        100% {
+          background-position: 0px -400px;
+        }
+      }
+
+      @keyframes texturestretch {
+        0% {
+          background-size: 100% 100%;
+          background-position: 0px 100%;
+        }
+
+        50% {
+          background-size: 200% 100%;
+          background-position: 0px 100%;
+        }
+
+        100% {
+          background-size: 100% 100%;
+          background-position: 500px 100%;
+        }
+      }
+
+      @keyframes pluff {
+        0% {
+          transform: scale(1, 1);
+        }
+
+        25% {
+          transform: scale(1.3, 0.6);
+        }
+
+        50% {
+          transform: scale(1.1, 0.9);
+        }
+
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+
+      body {
+        background-color: red;
+      }
+
+      body * {
+        position: absolute;
+      }
+
+      #page {
+        width: 500px;
+        height: 550px;
+        background-color: darkorange;
+        left: 250px;
+        top: 12px;
+        perspective: 200px;
+        animation: perspec 4s linear infinite;
+      }
+
+      #speech {
+        width: 110;
+        height: 80;
+        background-color: white;
+        left: 440;
+        top: 340;
+        z-index: 200;
+        box-shadow: 0px 0px 30px black;
+      }
+
+      #penisy {
+        width: 150;
+        height: 120;
+        top: 375;
+        left: 490;
+        background-image: url('images/penisy/front_house_penisy.png');
+        background-size: 100% 100%;
+        z-index: 40;
+      }
+
+      #extreme {
+        top: -6px;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+      }
+
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+      }
+
+      #floor {
+        width: 460px;
+        height: 250px;
+        background-image: url('images/foreground/floor_tiling.jpg');
+        background-size: 400px 300px;
+        left: 0px;
+        top: 370px;
+        transform-style: preserve-3d;
+        transform: rotateX(85deg);
+        z-index: -1;
+        animation: scroll 8s ease-in-out infinite;
+      }
+
+      #doorone {
+        width: 200px;
+        height: 280px;
+        left: 50px;
+        top: 370px;
+        z-index: 40;
+        opacity: .6;
+      }
+      
+      #doortwo {
+        width: 120px;
+        height: 220px;
+        left: 150px;
+        top: 200px;
+        z-index: 0;
+      }
+
+      #drawers1 {
+        width: 250px;
+        height: 120px;
+        background-image: url('images/foreground/kitchen_cabinets.png');
+        transform-style: preserve-3d;
+        transform: rotateY(-80deg);
+        top: 370px;
+        left: 220px;
+        background-size: 250px 100%;
+        z-index: 1;
+        animation: texturestretch 5s ease-in-out infinite;
+      }
+
+      #countertop1 {
+        width: 150px;
+        height: 300px;
+        background-image: url('images/foreground/granite.jpg');
+        transform-style: preserve-3d;
+        transform-origin: right;
+        transform: rotate3d(20, 1, 0, 90deg);
+        top: 210px;
+        left: 310px;
+        background-size: 100% 100%;
+        z-index: 2;
+      }
+
+      #backsplash1 {
+        background-image: url('images/foreground/kitchen_backsplash.png');
+        background-size: 100px 100px;
+        width: 250px;
+        height: 400px;
+        top: 100px;
+        left: 310px;
+        transform-style: preserve-3d;
+        transform: rotate3d(0, 1, 0, 90deg);
+        z-index: 0;
+      }
+
+      #backsplash2 {
+        /*not the most efficient, but im not using jekyll, so cry about it*/
+        background-image: url('images/foreground/kitchen_backsplash.png');
+        background-size: 100px 100px;
+        width: 250px;
+        height: 400px;
+        top: 100px;
+        left: -100px;
+        transform-style: preserve-3d;
+        transform: rotate3d(0, 1, 0, 90deg);
+        z-index: 0;
+      }
+
+      #drawers2 {
+        width: 250px;
+        height: 120px;
+        background-image: url('images/foreground/kitchen_cabinets.png');
+        transform-style: preserve-3d;
+        transform: rotateY(90deg);
+        top: 370px;
+        left: -70px;
+        background-size: 100% 100%;
+        z-index: 1;
+        animation: texturestretch 5s ease-in-out reverse infinite;
+      }
+
+      #countertop2 {
+        width: 90px;
+        height: 300px;
+        background-image: url('images/foreground/granite.jpg');
+        transform-style: preserve-3d;
+        transform-origin: right;
+        transform: rotate3d(20, 1, 0, -90deg);
+        top: 210px;
+        left: -10px;
+        background-size: 100% 100%;
+        z-index: 2;
+      }
+
+      #window {
+        background-image: url('images/foreground/window.png');
+        background-size: 100% 100%;
+        width: 250px;
+        height: 400px;
+        top: 100px;
+        left: 310px;
+        transform-style: preserve-3d;
+        transform: rotate3d(0, 1, 0, 90deg);
+        z-index: 0;
+      }
+    </style>
+    <script>
+      function doorone() {
+        window.location.href = "index.html";
+      }
+
+      function doortwo() {
+        window.location.href = "placeholder.html";
+      }
+
+      function doorthree() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+  </head>
+  <body>
+    <p id="extreme">kitchen</p>
+    <div id="page">
+      <div id="floor"></div>
+      <div id="doorone" class="door" onclick="doorone();"></div>
+      <div id="doortwo" class="door" onclick="doortwo();"></div>
+      <div id="drawers1"></div>
+      <div id="countertop1"></div>
+      <div id="backsplash1"></div>
+      <div id="backsplash2"></div>
+      <div id="drawers2"></div>
+      <div id="countertop2"></div>
+      <div id="window"></div>
+    </div>
+  </body>
