@@ -24,6 +24,12 @@
           50% {perspective: 300px;}
           100% {perspective: 200px;}
         }
+
+        @keyframes perspec2 {
+          0% {transform: rotateX(2deg);}
+          50% {transform: rotateX(-13deg);}
+          100% {transform: rotateX(2deg);}
+        }
         
         @keyframes scroll {
           0% {background-position: 0px 0px;}
@@ -58,14 +64,11 @@
         width: 900px;
         height: 550px;
         background-color: blue;
-        left: 102px;
+        left: 150px;
         top:32px;
         perspective: 200px;
         
-        animation-name: perspec;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
+        animation: perspec 4s linear infinite;
       }
 
       #speech {
@@ -87,20 +90,12 @@
         background-size: 100% 100%;
         z-index: 40;
       }
-      
-      @keyframes radical {
-        0% {transform: rotate3d(1, 1, 1, 0deg);}
-        100% {transform: rotate3d(1, 1, 1, 360deg);}
-      }
         
       #extreme {
         top: -6px;
         z-index:100;
         font-family: "Comic Sans MS", "Comic Sans", cursive;
-        animation-name: radical;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
+        animation: radical 4s linear infinite;
       }
       
       .bricks {
@@ -132,10 +127,7 @@
         transform: rotateX(45deg);
         z-index:-1;
         
-        animation-name: scroll;
-        animation-duration: 8s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
+        animation: scroll 8s linear infinite;
       }
       
       #ladder {
@@ -158,24 +150,29 @@
       }
       
       #fence {
-        width: 646px;
+        width: 700px;
         height: 180px;
         background-image: url('images/textures/fence.png');
         background-size: auto 100%;
         transform-style: preserve-3d;
-        transform: rotateX(2deg);
         top: 150px;
-        left: 130px;
+        left: 100px;
+        transform-origin: bottom;
+
+        animation: scroll 14s linear reverse infinite, perspec2 2.5s ease-out reverse infinite;
       }
+
       
       #pool {
-        width: 400px;
-        height: 300px;
-        background-image: url('images/textures/shitpoolreplacelater.png');
+        width: 600px;
+        height: 180px;
+        background-image: url('images/textures/pool.png');
         background-size: 100% 100%;
         top: 350px;
-        left: 200;
+        left: 140;
         z-index: 10;
+        transform-style: preserve-3d;
+        transform: rotateX(30deg);
       }
       
     </style>

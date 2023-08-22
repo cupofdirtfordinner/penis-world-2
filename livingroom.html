@@ -37,14 +37,27 @@
           25% {
             transform: scale(1.3, 0.6);
           }
-   
-          50% {
-            transform: scale(1.1, 0.9);
+          30% {
+            transform: scale(1.3, 0.6);
           }
           100% {
             transform: scale(1, 1);
           }
-    }
+        }
+          @keyframes plufftwo {
+          0% {
+            transform: scale(1, 1);
+          }
+          25% {
+            transform: scale(1.05, 0.9);
+          }
+          30% {
+            transform: scale(1.05, 0.9);
+          }
+          100% {
+            transform: scale(1, 1);
+          }
+        }
     
       body {
         background-color: orange;
@@ -104,10 +117,7 @@
         top: -6px;
         z-index:100;
         font-family: "Comic Sans MS", "Comic Sans", cursive;
-        animation-name: radical;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
+        animation: radical 4s linear infinite;
       }
       
       .bricks {
@@ -141,13 +151,12 @@
         width: 100%;
         height: 100%;
         transform-origin: bottom;
+
+        animation: plufftwo 1s ease infinite;
       }
       
       #pleatherCouch:hover #pleatherCouchInt {
-        animation-name: pluff;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease;
+        animation: pluff 1s ease infinite;
       }
       
       #floor {
@@ -186,10 +195,7 @@
         transform: rotateX(45deg);
         top: 530px;
         left: -50px;
-        animation-name: skew;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease;
+        animation: skew 3s ease infinite;
       }
       
       #doorone {
