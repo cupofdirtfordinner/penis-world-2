@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <title>library</title>
+    <style>
+      @keyframes radical {
+        0% {
+          transform: rotate3d(1, 1, 1, 0deg);
+        }
+
+        100% {
+          transform: rotate3d(1, 1, 1, 360deg);
+        }
+      }
+
+      @keyframes skew {
+        0% {
+          height: 120
+        }
+
+        50% {
+          height: 160
+        }
+
+        100% {
+          height: 120
+        }
+      }
+
+      @keyframes speech {
+        0% {
+          transform: rotate3d(0, 1, 0, 61.7deg);
+        }
+
+        100% {
+          transform: rotate3d(0, 1, 0, -118.3deg);
+        }
+      }
+
+      @keyframes perspec {
+        0% {
+          perspective: 	520px;
+        }
+
+        50% {
+          perspective: 400px;
+        }
+
+        100% {
+          perspective: 520px;
+        }
+      }
+
+      @keyframes scroll {
+        0% {background-position: 0px 0px;}
+
+        100% {background-position: 400px 0px; }
+      }
+
+
+      @keyframes texturestretch {
+        0% {
+          background-size: 100% 500%;
+          background-position: 0px 100%;
+        }
+
+        100% {
+          background-size: 100% 500%;
+          background-position: 0px 500%;
+        }
+      }
+
+      body {
+        background-color: #5824bf;
+	transform-style: preserve-3d;
+      }
+
+      body * {
+        position: absolute;
+      }
+
+      #page {
+        width: 650px;
+        height: 650px;
+        background-color: #692fde;
+        left: 50px;
+        top: 12px;
+        perspective: 200px;
+        animation: perspec 4s linear infinite;
+      }
+
+      #extreme {
+        top: -6px;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+      }
+
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+      }
+
+      #floor {
+        width: 650px;
+        height: 650px;
+        background-image: url('images/background/woodplanks.jpg');
+        background-size: 400px 300px;
+        left: 0px;
+        top: 0px;
+        transform: translate3d(0px, 0px, -200px);
+        z-index: -1;
+        animation: scroll 8s ease-in-out infinite;
+      }
+      
+      .wall {
+      	background-image: url('images/foreground/bookshelf.jpg');
+      	background-size: 250px 250px;
+      	height: 250px;
+      	transform-origin: bottom;
+      }
+
+      #bookshelf1 {
+      	width: 650px;
+      	transform: rotate3d(1, 0, 0, 90deg) translate3d(0px, -50px, 250px);
+      }
+
+      #bookshelf2 {
+      	width: 650px;
+      	transform: rotate3d(1, 0, 0, 90deg) translate3d(0px, -50px, -350px);
+      }
+
+      #bookshelf3 {
+      	width: 650px;
+      	transform: rotateX(90deg) rotateY(90deg) translate3d(50px, -100px, -350px);
+      }
+
+      #bookshelf4 {
+      	width: 650px;
+      	transform: rotateX(90deg) rotateY(90deg) translate3d(50px, -100px, 350px);
+      }
+
+      #doorone {
+      	width: 250px;
+      	height: 175px;
+      	transform: rotateX(90deg) rotateZ(180deg) translate3d(-200px, 200px, -520px);
+      	opacity: 0.6;
+      }
+      
+      #doortwo {
+      	width: 100px;
+      	height: 175px;
+      	transform: rotateX(90deg) rotateZ(180deg) translate3d(-200px, 180px, 100px);
+      }
+      
+      #doorthree {
+      	width: 250px;
+      	height: 275px;
+      	transform: rotateX(90deg) rotateY(90deg) rotateZ(180deg) translate3d(-200px, 200px, -140px);
+      }
+      
+      #doorfour {
+      	width: 200px;
+      	height: 100px;
+      	transform: rotateX(90deg) rotateY(90deg) rotateZ(180deg) translate3d(-200px, 200px, 430px);
+      	border-style: solid;
+      }
+
+    </style>
+    <script>
+      function doorone() {
+        window.location.href = "livingroom.html";
+      }
+
+      function doortwo() {
+        window.location.href = "placeholder.html";
+      }
+
+      function doorthree() {
+        window.location.href = "placeholder.html";
+      }
+      
+      function doorfour() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+  </head>
+  <body>
+    <p id="extreme">library</p>
+    <div id="page">
+
+      <div id="floor"></div>
+      <div class="wall" id="bookshelf1"></div>
+      <div class="wall" id="bookshelf2"></div>
+      <div class="wall" id="bookshelf3"></div>
+      <div class="wall" id="bookshelf4"></div>
+      <div class="door" id="doorone" onclick="doorone()"></div>
+      <div class="door" id="doortwo" onclick="doortwo()"></div>
+      <div class="door" id="doorthree" onclick="doorthree()"></div>
+      <div class="door" id="doorfour" onclick="doorfour()"></div>
+
+    </div>
+  </body>

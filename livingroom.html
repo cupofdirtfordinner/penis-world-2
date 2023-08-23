@@ -1,56 +1,63 @@
 <html>
   <head>
-    <title>home</title>
+    <title>living room</title>
     <style>
     
-    @keyframes radical {
-          0% {transform: rotate3d(1, 1, 1, 0deg);}
-          100% {transform: rotate3d(1, 1, 1, 360deg);}
-        }
-        
-        @keyframes skew {
-            0% {height: 120; width: 600}
-          50% {height: 160; width: 500; left: 15}
-          100% {height: 120; width: 600}
-        }
-        
-        @keyframes speech {
-          0% {transform: rotate3d(0, 1, 0, 61.7deg);}
-          100% {transform: rotate3d(0, 1, 0, -118.3deg);}
-        }
-        
-        @keyframes perspec {
-          0% {perspective: 200px;}
-          50% {perspective: 220px;}
-          100% {perspective: 200px;}
-        }
-        
-        @keyframes scroll {
-          0% {background-position: 0px 0px;}
-          100% {background-position: 200px 0px;}
-        }
-        
-        @keyframes pluff {
-          0% {transform: scale(1, 1);}
-          25% {transform: scale(1.3, 0.6);}
-          30% {transform: scale(1.3, 0.6);}
-          100% {transform: scale(1, 1);}
-        }
-          @keyframes plufftwo {
-          0% {transform: scale(1, 1);}
-          25% {transform: scale(1.05, 0.9);}
-          30% {transform: scale(1.05, 0.9);}
-          100% {transform: scale(1, 1);}
-        }
-        
-          @keyframes coolscroll {
-            0% {background-position-y: 0px;}
-            100% {background-position-y: 256px;}
-          }
-          @keyframes coolscrollHorizontal {
-            0% {background-position-x: 0px}
-            100% {background-position-x: 256px}
-          }
+      @keyframes radical {
+        0% {transform: rotate3d(1, 1, 1, 0deg);}
+        100% {transform: rotate3d(1, 1, 1, 360deg);}
+      }
+      
+      @keyframes skew {
+          0% {height: 120; width: 600}
+        50% {height: 160; width: 500; left: 15}
+        100% {height: 120; width: 600}
+      }
+      
+      @keyframes speech {
+        0% {transform: rotate3d(0, 1, 0, 61.7deg);}
+        100% {transform: rotate3d(0, 1, 0, -118.3deg);}
+      }
+      
+      @keyframes perspec {
+        0% {perspective: 200px;}
+        50% {perspective: 220px;}
+        100% {perspective: 200px;}
+      }
+      
+      @keyframes scroll {
+        0% {background-position: 0px 0px;}
+        100% {background-position: 200px 0px;}
+      }
+      
+      @keyframes pluff {
+        0% {transform: scale(1, 1);}
+        25% {transform: scale(1.3, 0.6);}
+        30% {transform: scale(1.3, 0.6);}
+        100% {transform: scale(1, 1);}
+      }
+        @keyframes plufftwo {
+        0% {transform: scale(1, 1);}
+        25% {transform: scale(1.05, 0.9);}
+        30% {transform: scale(1.05, 0.9);}
+        100% {transform: scale(1, 1);}
+      }
+      
+      @keyframes coolscroll {
+        0% {background-position-y: 0px;}
+        100% {background-position-y: 256px;}
+      }
+      
+      @keyframes coolscrollHorizontal {
+        0% {background-position-x: 0px}
+        100% {background-position-x: 256px}
+      }
+      
+      @keyframes swing {
+        0% {transform: rotate(5deg)}
+        100% {transform: rotate(-5deg)}
+      }
+      
     
       body {
         background-color: orange;
@@ -209,6 +216,20 @@
         top: 270px;
       }
       
+      #doorthree {
+        width: 100px;
+        height: 120px;
+        left: 60px;
+        top: 40px;
+      }
+      
+      #doorfour {
+        width: 80px;
+        height: 170px;
+        left: 380px;
+        top: 50px;
+      }
+      
       #bobo {
         background-image: url('images/background/bobo.png');
         width: 125px;
@@ -217,6 +238,19 @@
         z-index: 900000;
         top: 230px;
         left: 12px;
+      }
+      
+      #rope {
+        background-image: url('images/foreground/rope.png');
+        width: 48px;
+        height: 300px;
+        background-size: 100% 100%;
+        z-index: 900000;
+        top: -20px;
+        left: 240px;
+        filter: drop-shadow(-30px 23px 6px rgba(0, 0, 0, 0.4));
+        transform-origin: top;
+        animation: swing 3.5s ease-in-out alternate-reverse infinite;
       }
       
     </style>
@@ -228,8 +262,12 @@
         window.location.href = "backyard.html";
       }
       function doorthree() {
-        window.location.href = "livingroom.html";
+        window.location.href = "library.html";
       }
+      function doorfour() {
+        window.location.href = "placeholder.html";
+      }
+      
     </script>
   </head>
   <body>
@@ -244,6 +282,10 @@
     <div id="carpet"></div>
     <div id="doorone" class="door" onclick="doorone();"></div>
     <div id="doortwo" class="door" onclick="doortwo();"></div>
+    <div id="doorthree" class="door" onclick="doorthree();"></div>
+    <div id="doorfour" class="door" onclick="doorfour();"></div>
     <div id="bobo"></div>
+    <div id="rope"></div>
     </div>
   </body>
+</html>
