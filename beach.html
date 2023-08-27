@@ -1,0 +1,193 @@
+<html>
+  <head>
+    <title>home</title>
+    <style>
+      @keyframes radical {
+        0% {
+          transform: rotate3d(1, 1, 1, 0deg);
+        }
+
+        100% {
+          transform: rotate3d(1, 1, 1, 360deg);
+        }
+      }
+
+      @keyframes skew {
+        0% {
+          height: 120
+        }
+
+        50% {
+          height: 160
+        }
+
+        100% {
+          height: 120
+        }
+      }
+
+      @keyframes speech {
+        0% {
+          transform: translate3d(700px, 200px, 100px) rotate3d(0, 1, 0, 105deg);
+        }
+
+        100% {
+          transform: translate3d(700px, 200px, 100px) rotate3d(0, 1, 0, -78deg);
+        }
+      }
+
+      @keyframes perspec {
+        0% {
+          perspective: 	1600px;
+        }
+
+        50% {
+          perspective: 1500px;
+        }
+
+        100% {
+          perspective: 1600px;
+        }
+      }
+
+      @keyframes scroll {
+        0% {background-position: 0px 0px;}
+
+        100% {background-position: 400px 0px; }
+      }
+
+
+      @keyframes texturestretch {
+        0% {
+          background-size: 100% 500%;
+          background-position: 0px 100%;
+        }
+
+        100% {
+          background-size: 100% 500%;
+          background-position: 0px 500%;
+        }
+      }
+
+      body {
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,39,255,1) 100%);
+      }
+
+      body * {
+        position: absolute;
+      }
+
+      #page {
+        width: 2400px;
+        height: 550px;
+        left: 50px;
+        top: 12px;
+        perspective: 200px;
+        animation: perspec 4s linear infinite;
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,212,255,1) 100%);
+      }
+
+      #intpage {
+        transform-style: preserve-3d;
+      }
+
+      #extreme {
+        top: -6px;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+      }
+
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+      }
+
+      #sand {
+        width: 3000px;
+        height: 600px;
+        background-image: url('images/background/sand.jpg');
+        background-size: 400px 300px;
+        transform: translate3d(-200px, 250px, 0px) rotateX(65deg);
+        z-index: -1;
+        animation: scroll 8s ease-in-out infinite;
+      }
+
+      #water {
+        width: 3000px;
+        height: 400px;
+        background-image: url('images/background/water.webp');
+        background-size: 400px 300px;
+        transform: translate3d(-200px, 200px, -107px) rotateX(65deg);
+        z-index: -1;
+        animation: scroll 8s ease-in-out reverse infinite;
+        clip-path: polygon(90% 79%, 100% 100%, 100% 0, 0 0, 0 100%, 18% 78%, 25% 100%, 37% 78%, 45% 100%, 55% 77%, 65% 100%, 73% 78%, 83% 100%);
+        filter: drop-shadow(0px 10px 3px black);
+      }
+      
+      #penisy {
+        width: 250;
+        height: 250;
+        background-image: url('images/penisy/whispering_penisy.png');
+        background-size: 100% 100%;
+        transform: translate3d(450px, 300px, 220px) rotateY(40deg);
+        z-index: 40;
+      }
+      
+      #speech {
+        width: 210;
+        height: 260;
+        background-color: white;
+        transform: rotateY(-10deg) translate3d(700px, 200px, 0px);
+        z-index: 200;
+        box-shadow: 0px 0px 30px black;
+        font-size: 22px;
+        animation: speech 4s linear infinite;
+      }
+
+      #building {
+        width: 210;
+        height: 960;
+        background-color: grey;
+        transform: rotateY(20deg) translate3d(50px, 0px, 0px);
+        z-index: 200;
+        box-shadow: 0px 0px 30px black;
+      }
+
+      #doorone {
+        width: 250px;
+        height: 100px;
+        transform: rotateY(20deg) translate3d(50px, 300px, 0px);
+        background-image: url('images/foreground/burrowed hole.png')
+      }
+
+    </style>
+    <script>
+      function doorone() {
+        window.location.href = "secret tunnel but backwards.html";
+      }
+
+      function doortwo() {
+        window.location.href = "placeholder.html";
+      }
+
+      function doorthree() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+  </head>
+  <body>
+    <p id="extreme">beach</p>
+    <div id="page">
+        <div id="intpage">
+            <div id="sand"></div>
+            <div id="water"></div>
+            <div id="penisy"></div>
+            <div id="speech">PSssst.,this page needs you to scroll horizontally! if you got a mouse, middle click the mouse wheel and drag right. if you're on a trackpad, try sexing your ass!</div>
+            <!--<div id="building"></div>-->
+            <div id="doorone" class="door" onclick="doorone();"></div>
+        </div>
+    </div>
+  </body>
