@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <title>home</title>
+    <style>
+      @keyframes radical {
+        0% {
+          transform: rotate3d(1, 1, 1, 0deg);
+        }
+
+        100% {
+          transform: rotate3d(1, 1, 1, 360deg);
+        }
+      }
+
+      @keyframes skew {
+        0% {
+          height: 120
+        }
+
+        50% {
+          height: 160
+        }
+
+        100% {
+          height: 120
+        }
+      }
+
+      @keyframes speech {
+        0% {
+          transform: rotate3d(0, 1, 0, 61.7deg);
+        }
+
+        100% {
+          transform: rotate3d(0, 1, 0, -118.3deg);
+        }
+      }
+
+      @keyframes scroll {
+        0% {background-position: 0px 0px;}
+
+        100% {background-position: 0px 500px; }
+      }
+
+
+      @keyframes texturestretch {
+        0% {
+          background-size: 100% 500%;
+          background-position: 0px 100%;
+        }
+
+        100% {
+          background-size: 100% 500%;
+          background-position: 0px 500%;
+        }
+      }
+
+      body {
+        background-color: #9eb339;
+      }
+
+      body * {
+        position: absolute;
+      }
+
+      #page {
+        width: 550px;
+        height: 550px;
+        left: 50px;
+        top: 50px;
+        perspective: 500px;
+        transform-style: preserve-3d;
+      }
+
+      #extreme {
+        top: -6px;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+      }
+
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+      }
+
+      #floor {
+        width: 600px;
+        height: 300px;
+        background-image: url('images/background/carpet2.jpg');
+        background-size: 400px 400px;
+        transform-style: preserve-3d;
+        transform: translate3d(0px, 370px, -100px) rotateX(90deg);
+        z-index: -1;
+        animation: scroll 40s linear infinite;
+      }
+
+      #wall {
+        width: 300px;
+        height: 550px;
+        background-image: url('images/background/stucco.avif');
+        background-size: 100% 100%;
+        transform-style: preserve-3d;
+        transform: translate3d(450px, -30px, -100px) rotateY(-90deg);
+        z-index: -1;
+        animation: scroll 40s linear infinite;
+      }
+
+      #wall2 {
+        width: 600px;
+        height: 550px;
+        background-image: url('images/background/stucco.avif');
+        background-size: 100% 100%;
+        left: 0px;
+        top: 345px;
+        transform-style: preserve-3d;
+        transform: translate3d(0px, -370px, -250px);
+        z-index: -1;
+        animation: scroll 40s linear infinite;
+      }
+
+      #wall3 {
+        width: 300px;
+        height: 550px;
+        background-image: url('images/background/stucco.avif');
+        background-size: 100% 100%;
+        transform-style: preserve-3d;
+        transform: translate3d(-150px, -30px, -100px) rotateY(-90deg);
+        z-index: -1;
+        animation: scroll 40s linear infinite;
+      }
+      
+      #window {
+        width: 300px;
+        height: 300px;
+        background-image: url('images/foreground/window2.png');
+        background-size: 100% 100%;
+        left: 150px;
+        top: 350px;
+        transform-style: preserve-3d;
+        transform: translate3d(0px, -370px, -250px);
+        z-index: -1;
+      }
+      
+    </style>
+    <script>
+      function doorone() {
+        window.location.href = "index.html";
+      }
+
+      function doortwo() {
+        window.location.href = "placeholder.html";
+      }
+
+      function doorthree() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+  </head>
+  <body>
+    <p id="extreme">computer room</p>
+    <div id="page">
+
+      <div id="floor"></div>
+      <div id="wall"></div>
+      <div id="wall2"></div>
+      <div id="wall3"></div>
+      <div id="window"></div>
+    </div>
+  </body>
