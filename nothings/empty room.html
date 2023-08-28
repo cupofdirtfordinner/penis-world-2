@@ -100,6 +100,7 @@
         height: 550px;
         background-image: url('images/background/stucco.avif');
         background-size: 100% 100%;
+        transform-style: preserve-3d;
         transform: translate3d(450px, -30px, -100px) rotateY(-90deg);
         z-index: -1;
         animation: scroll 40s linear infinite;
@@ -112,6 +113,7 @@
         background-size: 100% 100%;
         left: 0px;
         top: 345px;
+        transform-style: preserve-3d;
         transform: translate3d(0px, -370px, -250px);
         z-index: -1;
         animation: scroll 40s linear infinite;
@@ -122,6 +124,7 @@
         height: 550px;
         background-image: url('images/background/stucco.avif');
         background-size: 100% 100%;
+        transform-style: preserve-3d;
         transform: translate3d(-150px, -30px, -100px) rotateY(-90deg);
         z-index: -1;
         animation: scroll 40s linear infinite;
@@ -134,50 +137,15 @@
         background-size: 100% 100%;
         left: 150px;
         top: 350px;
+        transform-style: preserve-3d;
         transform: translate3d(0px, -370px, -250px);
         z-index: -1;
-      }
-
-      #desk {
-        width: 300px;
-        height: 200px;
-        background-image: url('images/foreground/really old desk.png');
-        background-size: 100% 100%;
-        transform: translate3d(150px, 300px, -50px);
-        z-index: -1;
-      }
-
-      #monitor {
-        width: 145px;
-        height: 180px;
-        background-image: url('images/foreground/tv front.png');
-        background-size: 100% 100%;
-        transform: translate3d(225px, 148px, -50px);
-        z-index: -1;
-      }
-
-      #doorone {
-        width: 105px;
-        height: 180px;
-        background-size: 100% 100%;
-        transform: translate3d(255px, 300px, 125px);
-        z-index: 1;
-        opacity: 0.6;
-      }
-
-      #doortwo {
-        width: 120px;
-        height: 280px;
-        background-size: 100% 100%;
-        transform: translate3d(415px, 170px, 125px);
-        background-image: url('images/foreground/ajar door.png');
-        z-index: 1;
       }
       
     </style>
     <script>
       function doorone() {
-        window.location.href = "livingroom.html";
+        window.location.href = "index.html";
       }
 
       function doortwo() {
@@ -192,15 +160,11 @@
   <body>
     <p id="extreme">computer room</p>
     <div id="page">
+
       <div id="floor"></div>
       <div id="wall"></div>
       <div id="wall2"></div>
       <div id="wall3"></div>
       <div id="window"></div>
-      <div id="desk"></div>
-      <div id="monitor"></div>
-    
-      <div id="doorone" class="door" onclick="doorone();"></div>
-      <div id="doortwo" class="door" onclick="doortwo();"></div>
     </div>
   </body>
