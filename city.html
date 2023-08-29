@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>home</title>
+    <title>city (really unfinished and fucked)</title>
     <style>
       @keyframes radical {
         0% {
@@ -85,11 +85,11 @@
 
       @keyframes rotate {
         0% {
-          transform: rotateZ(0deg);
+          transform: rotateZ(10deg);
         }
 
         100% {
-          transform: rotateZ(360deg);
+          transform: rotateZ(-10deg);
         }
       }
 
@@ -108,7 +108,7 @@
         left: 150px;
         top: 12px;
         perspective: 200px;
-        animation: rotate 60s linear infinite;
+        animation: rotate 20s linear alternate-reverse infinite;
         transform-style: preserve-3d;
         overflow: scroll;
       }
@@ -135,7 +135,6 @@
         transform-style: preserve-3d;
         transform: rotateX(85deg);
         z-index: -1;
-        animation: scroll 8s ease-in-out infinite;
       }
       
       #ceiling {
@@ -148,7 +147,6 @@
         transform-style: preserve-3d;
         transform: rotateX(85deg);
         z-index: -1;
-        animation: scroll 8s ease-in-out infinite;
       }
       
       #leftwall {
@@ -159,7 +157,6 @@
         transform-style: preserve-3d;
         transform: translate3d(-300px, 60px, -300px) rotateY(85deg);
         z-index: -1;
-        animation: scroll 8s ease-in-out infinite;
       }
       #rightwall {
         width: 930px;
@@ -169,9 +166,12 @@
         transform-style: preserve-3d;
         transform: translate3d(100px, 60px, -300px) rotateY(85deg);
         z-index: -1;
-        animation: scroll 8s ease-in-out infinite;
       }
       
+      #penis {
+        display: none;
+      }
+
     </style>
     <script>
       function doorone() {
@@ -185,10 +185,12 @@
       function doorthree() {
         window.location.href = "placeholder.html";
       }
+
+      console.log("type document.getElementById('penis').style.display = 'inherit'; ")
     </script>
   </head>
   <body>
-    <p id="extreme">secret tunnel (shh!)</p>
+    <p id="extreme">city (really unfinished and fucked)</p>
     <div id="page">
 
       <div id="floor"></div>
@@ -197,4 +199,7 @@
       <div id="rightwall"></div>
       <div class="door" id="doorone" onclick="doorone()"></div>
     </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p>middle click and scroll around. if you want a fun little rant, open the console</p> <br>
+    <p id="penis">there's a lot of other higher priority rooms to work on first, this is the end of this path right now. I discovered this weird little thing when i made a mistake while making the secret tunnel room, I thought making a city map would be a good use of the concept but it would also add a lot of other paths. I want to bring on some other people to help me out with this, but i struggle with that thought because it would ruin some of the vision of the project for me. like it would no longer be my individual art project, and would turn into an amalgamate of other ideas. that and I just dont know who I would even add that'd actually contribute; all the other projects i've made with friends have fallen through. thanks for exploring.</p>
   </body>

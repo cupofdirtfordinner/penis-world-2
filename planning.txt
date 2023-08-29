@@ -18,9 +18,10 @@ man cave
 secret lab
 beach
 plant world
-computer room > massive server room with sign reading the name of a porn site
+basement > massive server room with sign reading the name of a porn site
+computer room > statue room > vents > rat cave, sand castle, other weird stuff
+computer room > other place > vents
 
-home
 living room, kitchen, greenhouse
 library, pool| nothing | plant world*, nothing
 nothing, nothing, nothing | ocean*
