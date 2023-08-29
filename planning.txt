@@ -25,3 +25,5 @@ computer room > other place > vents
 living room, kitchen, greenhouse
 library, pool| nothing | plant world*, nothing
 nothing, nothing, nothing | ocean*
+
+garage

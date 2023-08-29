@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>paint world</title>
+		<style>
+			body * {
+				position: absolute;
+			}
+
+			#main {
+				width: 1280px;
+				height: 720px;
+				background-image: url('../../images/paint_world/landscape.png');
+			  left: 108px;
+			  background-size: 100% 100%;
+			}
+			
+			#sun {
+				width: 400px;
+				height: 300px;
+				background-position: 100% 100%;
+				z-index: 4;
+				left: 400px;
+			}
+			
+			#left {
+				width: 100px;
+				height: 200px;
+				background-position: 100% 100%;
+				z-index: 4;
+				top: 260;
+			}
+			
+			#right {
+				width: 100px;
+				height: 200px;
+				background-position: 100% 100%;
+				z-index: 4;
+				left:1398px;
+				top: 260;
+			}
+		</style>
+		<script>
+		  function left() {
+		    window.location.href = "../../kitchen.html";
+		  }
+		  
+		  function right() {
+		    window.location.href = "3.html";
+		  }
+		</script>
+	</head>
+	<body>
+		<div id="main"></div>
+		<img id="sun" src="../../images/paint_world/sun.png">
+		<img id="left" src="../../images/paint_world/left.png" onclick="left();">
+		<img id="right" src="../../images/paint_world/right.png" onclick="right();">
+		
