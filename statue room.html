@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <title>statue room</title>
+    <style>
+      @keyframes radical {
+        0% {
+          transform: rotate3d(1, 1, 1, 0deg);
+        }
+
+        100% {
+          transform: rotate3d(1, 1, 1, 360deg);
+        }
+      }
+
+      @keyframes skew {
+        0% {
+          height: 120
+        }
+
+        50% {
+          height: 160
+        }
+
+        100% {
+          height: 120
+        }
+      }
+
+      @keyframes speech {
+        0% {
+          transform: rotate3d(0, 1, 0, 61.7deg);
+        }
+
+        100% {
+          transform: rotate3d(0, 1, 0, -118.3deg);
+        }
+      }
+
+      @keyframes perspec {
+        0% {
+          perspective: 	530px;
+        }
+
+        50% {
+          perspective: 400px;
+        }
+
+        100% {
+          perspective: 530px;
+        }
+      }
+
+      @keyframes perspec2 {
+        0% {
+          transform: rotateX(2deg);
+        }
+
+        50% {
+          transform: rotateX(-13deg);
+        }
+
+        100% {
+          transform: rotateX(2deg);
+        }
+      }
+
+      @keyframes scroll {
+        0% {background-position: 0px 0px;}
+
+        100% {background-position: 400px 0px; }
+      }
+
+
+      @keyframes texturestretch {
+        0% {
+          background-size: 100% 500%;
+          background-position: 0px 100%;
+        }
+
+        100% {
+          background-size: 100% 500%;
+          background-position: 0px 500%;
+        }
+      }
+
+      @keyframes pluff {
+        0% {
+          transform: scale(1, 1);
+        }
+
+        25% {
+          transform: scale(1.3, 0.6);
+        }
+
+        50% {
+          transform: scale(1.1, 0.9);
+        }
+
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+
+      body {
+        background-color: #e1eb59;
+      }
+
+      body * {
+        position: absolute;
+      }
+
+      #page {
+        width: 1040px;
+        height: 550px;
+        left: 0px;
+        top: 12px;
+        perspective: 200px;
+        animation: perspec 4s ease-in-out infinite;
+      }
+      
+      #fakepage {
+        width: 2500px;
+        height: 2500px;
+        left: 50px;
+        top: 12px;
+        transform: translate3d(-900px, -600px, -1200px);
+        background-color: #f1f79e;
+      }
+
+      #extreme {
+        top: -6px;
+        
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+      }
+
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+      }
+
+      #floor {
+        width: 800px;
+        height: 800px;
+        background-image: url('images/background/polished concrete.jpg');
+        background-size: 400px 300px;
+        transform: translate3d(70px, 370px, -600px) rotateX(90deg) rotateZ(45deg);
+        animation: scroll 6.7s linear infinite;
+      }
+      
+      #vent {
+        width: 200px;
+        height:150px;
+        background-image: url('images/foreground/vent.webp');
+        background-size: 100% 100%;
+        transform: translate3d(100px, -210px, -700px) rotatey(45deg);
+      }
+      
+      #wall1 {
+        width: 850px;
+        height: 1100px;
+        background-image: url('images/background/another stucco.jpg');
+        background-size: 800px 800px;
+        transform: translate3d(-230px, -300px, -900px) rotatey(45deg);
+      }
+      
+      #wall2 {
+        width: 1050px;
+        height: 1100px;
+        background-image: url('images/background/another stucco.jpg');
+        background-size: 800px 800px;
+        transform-style: preserve-3d;
+        transform: translate3d(170px, -300px, -1000px) rotatey(-45deg);
+      }
+      
+      #doorone {
+        width: 300px;
+        height: 300px;
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+        transform: translate3d(590px, 460px, -300px) rotatey(45deg);
+        opacity: 0.6;
+      }
+      
+      #doortwo {
+        width: 300px;
+        height: 300px;
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+        transform: translate3d(40px, 0px, -300px) rotatey(-45deg);
+        opacity: 0.6;
+        z-index: 8; /*WHY DOES Z-INDEX MATTER THE SHIT IS 3D THERE'S ALREADY ANOTHER Z AXIS*/
+      }
+      
+      #statue1 {
+        width: 370px;
+        height: 470px;
+        background-image: url('images/background/gargoyle.png');
+        background-size: 100% 100%;
+        transform: translate3d(300px, 290px, -300px);
+        z-index: 9;
+      }
+      
+      #statue2 {
+        width: 600px;
+        height: 770px;
+        background-image: url('images/background/new leaf statue.png');
+        background-size: 100% 100%;
+        transform: translate3d(400px, 80px, -550px);
+      }
+      
+      #statue3 {
+        width: 260px;
+        height: 500px;
+        background-image: url('images/background/moyai.png');
+        background-size: 100% 100%;
+        transform: translate3d(100px, 300px, -600px);
+      }
+      
+      
+    </style>
+    <script>
+      function doorone() {
+        window.location.href = "kitchen.html";
+      }
+
+      function doortwo() {
+        window.location.href = "office.html";
+      }
+
+      function doorthree() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+  </head>
+  <body>
+    <p id="extreme">statue room</p>
+    <div id="page">
+
+      <div id="fakepage"></div>
+      <div id="floor"></div>
+      <div id="wall1"></div>
+      <div id="wall2"></div>
+      <div id="statue1"></div>
+      <div id="statue2"></div>
+      <div id="statue3"></div>
+      <div id="doorone" onclick="doorone();"></div>
+      <div id="doortwo" onclick="doortwo();"></div>
+      <div id="vent" onclick="doorthree();"></div>
+
+    </div>
+  </body>
