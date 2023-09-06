@@ -14,16 +14,20 @@ top down room---
 greenhouse---
 acid room / vat of acids
 inescapable singular chair room >:(
-man cave
+man cave // how will i do this without adding a stormtrooper?
 secret lab
 beach
 plant world
+garage
+
 basement > massive server room with sign reading the name of a porn site
 computer room > statue room > vents > rat cave, sand castle, other weird stuff
 computer room > other place > vents
 
-living room, kitchen, greenhouse
-library, pool| nothing | plant world*, nothing
-nothing, nothing, nothing | ocean*
+favorite looking rooms, first to last:
+greenhouse, statue room, kitchen, living room
+lease favorite looking rooms, first to last:
+under pool, secret tunnel but backwards, secret tunnel
 
-garage
+things i have to make in blender: staircase, catacombs  skull shelf
+guidelines: no references to things that exist, no links to external websites outside the penisverse. it breaks immersion and isnt that cool!
