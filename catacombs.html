@@ -1,63 +1,149 @@
 <html>
   <head>
     <title>
-      REPLACE THIS!
+      catacombs
     </title>
+    <link rel="icon" href="images/favicon.gif" type="image/gif" />
     <style>
       @keyframes perspec {
-        0% {perspective: 500px;}
-        100% {perspective: 300px;}
+        0% {perspective: 700px;}
+        100% {perspective: 600px;}
       }
+      
        @keyframes scroll {
         0% {background-position: 0px 0px;}
-        100% {background-position: 200px 0px;}
+        100% {background-position: 600px 0px;}
       }
+      
       @keyframes radical {
         0% {transform: rotate3d(1, 1, 1, 0deg);}
         100% {transform: rotate3d(1, 1, 1, 360deg);}
       }
       
+      @keyframes floorshake {
+        0%{transform: translate3d(0px, -200px, -300px) rotateX(90deg) rotateY(0deg) rotateZ(0deg)}
+        5%{transform: translate3d(0px, -200px, -300px) rotateX(85deg) rotateY(0deg) rotateZ(0deg)}
+        
+        25%{transform: translate3d(0px, -200px, -300px) rotateX(85deg) rotateY(0deg) rotateZ(0deg)}
+        30%{transform: translate3d(0px, -200px, -300px) rotateX(90deg) rotateY(2deg) rotateZ(0deg)}
+        
+        50%{transform: translate3d(0px, -200px, -300px) rotateX(90deg) rotateY(2deg) rotateZ(0deg)}
+        55%{transform: translate3d(0px, -200px, -300px) rotateX(90deg) rotateY(-2deg) rotateZ(5deg)}
+        
+        75%{transform: translate3d(0px, -200px, -300px) rotateX(90deg) rotateY(-2deg) rotateZ(5deg)}
+        80%{transform: translate3d(0px, -200px, -300px) rotateX(90deg) rotateY(0deg) rotateZ(0deg)}
+        
+        100%{transform: translate3d(0px, -200px, -300px) rotateX(90deg) rotateY(0deg) rotateZ(0deg)}
+      }
+      
       body {
-        background: RED;
+        background: #171717;
         transform-style: preserve-3d;
       }
+      
       #page {
-        background: BLUE;
-        width: 500px;
-        height: 500px;
-        transform: translate3d(60px, 20px, -500px);
+        background: #4d4d4d;
+        width: 400px;
+        height: 400px;
+        transform: translate3d(300px, 100px, 0px);
         animation: perspec 5s linear alternate-reverse infinite;
       }
+      
       .door {
         background-image: url('images/foreground/door.png');
         background-size: 100% 100%;
         width: 100px;
         height: 100px;
       }
+      
       #door1 {
-        width: 80px;
-        height: 130px;
-        transform: translate3d(200px, 180px, 80px) rotatex(0deg);
-        opacity: 0.6;
-      }
-      #floor {
-        background: GREEN;
-        width: 500px;
+        width: 150px;
         height: 200px;
-        transform: translate3d(0px, 400px, 0px) rotatex(90deg);
+        transform: translate3d(520px, -2000px,  200px) rotatex(30deg);
+        opacity: 0.6;
+        z-index: 1;
+      }
+
+      #floor {
+        background: url('images/background/flagstone.jpeg');
+        background-size: 100% 100%;
+        width: 400px;
+        height: 1200px;
+        z-index: 2;
+        animation: floorshake 6.5s linear infinite;
+      }
+
+      .wall, .wall2 {
+        background: url('images/foreground/catacombs.png');
+        background-size: 600px 80px;
+        width: 1200px;
+        height: 80px;
+        z-index: 2;
+        animation: scroll 5s linear infinite;
+      }
+      
+      
+
+      .wall:nth-child(odd), .wall2:nth-child(even) {
+        animation: scroll 5s linear reverse infinite;
+      }
+
+      #WallLeft1 {
+        transform: translate3d(-600px, calc(-480px - 700px), -300px) rotatez(-10deg) rotatey(90deg) ;
+      }
+      
+      #WallLeft2 {
+        transform: translate3d(-600px, calc(-490px - 700px), -300px) rotatez(-10deg) rotatey(90deg);
+      }
+      
+      #WallLeft3 {
+        transform: translate3d(-600px, calc(-501px - 700px), -300px) rotatez(-10deg) rotatey(90deg);
+      }
+      
+      #WallLeft4 {
+        transform: translate3d(-600px, calc(-501px - 700px), -300px) rotatez(-10deg) rotatey(90deg);
+      }
+      
+      #WallLeft5 {
+        transform: translate3d(-600px, calc(-501px - 700px), -300px) rotatez(-10deg) rotatey(90deg);
+      }
+      
+	  
+      #Wallright1 {
+        transform: translate3d(-200px, calc(-880px - 700px), -300px) rotatez(10deg) rotatey(90deg);
+      }
+      
+      #Wallright2 {
+        transform: translate3d(-200px, calc(-890px - 700px), -300px) rotatez(10deg) rotatey(90deg);
+      }
+      
+      #Wallright3 {
+        transform: translate3d(-200px, calc(-901px - 700px), -300px) rotatez(10deg) rotatey(90deg);
+      }
+      
+      #Wallright4 {
+        transform: translate3d(-200px, calc(-901px - 700px), -300px) rotatez(10deg) rotatey(90deg);
+      }
+      
+      #Wallright5 {
+        transform: translate3d(-200px, calc(-901px - 700px), -300px) rotatez(10deg) rotatey(90deg);
       }
 
       #extreme {
         display: inline-block;
-        top: -6px;
-        z-index: 100;
+        top: 13px;
+        left: 20px;
+        z-index: 1002;
         font-family: "Comic Sans MS", "Comic Sans", cursive;
         animation: radical 4s linear infinite;
+        -webkit-text-fill-color: black;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
       }
     </style>
     <script>
       function door1() {
-        window.location.href = "index.html";
+        window.location.href = "staircase.html";
       }
       function door2() {
         window.location.href = "placeholder.html";
@@ -68,9 +154,19 @@
     </script>
   </head>
   <body>
-    <span id="extreme">REPLACE THIS!!!</span>
+    <span id="extreme">catacombs</span>
     <div id="page">
       <div id="floor"></div>
+      <div class="wall all" id="WallLeft1"></div>
+      <div class="wall all" id="WallLeft2"></div>
+      <div class="wall all" id="WallLeft3"></div>
+      <div class="wall all" id="WallLeft4"></div>
+      <div class="wall all" id="WallLeft5"></div>
+      <div class="wall2 all" id="Wallright1"></div>
+      <div class="wall2 all" id="Wallright2"></div>
+      <div class="wall2 all" id="Wallright3"></div>
+      <div class="wall2 all" id="Wallright4"></div>
+      <div class="wall2 all" id="Wallright5"></div>
       <div id="door1" class="door" onclick="door1()"></div>
     </div>
   </body>
