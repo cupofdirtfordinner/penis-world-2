@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <title>
+      staircase
+    </title>
+    <link rel="icon" href="images/favicon.gif" type="image/gif" />
+    <style>
+      @keyframes perspec {
+        0% {perspective: 900px;}
+        100% {perspective: 500px;}
+      }
+       @keyframes scroll {
+        0% {background-position: 0px 0px;}
+        100% {background-position: 200px 0px;}
+      }
+      @keyframes radical {
+        0% {transform: rotate3d(1, 1, 1, 0deg);}
+        100% {transform: rotate3d(1, 1, 1, 360deg);}
+      }
+      @keyframes spinny {
+        0% {transform: translate3d(0px, 30%, -200px) rotatey(0deg) rotatex(90deg);}
+        100% {transform: translate3d(0px, 30%, -200px) rotatey(360deg) rotatex(90deg);}
+      }
+      
+      @keyframes gentleShake {
+        0% {transform: translate3d(60px, 20px, 0px) skew(2deg, 2deg)}
+        100% {transform: translate3d(60px, 20px, 0px) skew(-2deg, -2deg)}
+      }
+      
+      body {
+        background: #4100ba;
+        transform-style: preserve-3d;
+        overflow: scroll;
+      }
+      
+      #page {
+        background: #8818a1;
+        width: 700px;
+        height: 700px;
+        transform: translate3d(60px, 20px, 0px);
+        animation: perspec 10s linear alternate-reverse infinite, gentleShake 5s ease-in-out alternate-reverse infinite;
+        perspective: 600px;
+      }
+      
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+        width: 100px;
+        height: 100px;
+      }
+      
+      #door1 {
+        width: 150px;
+        height: 200px;
+        transform: translate3d(620px, -700px, -150px) rotatey(90deg);
+        opacity: 0.7;
+        z-index: 4;
+      }
+      
+      #door2 {
+        width: 220px;
+        height: 260px;
+        transform: translate3d(400px, 450px, -150px) rotatex(90deg) rotatez(45deg);
+        z-index: 4;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      #door3 {
+        width:200px;
+        height: 260px;
+        transform: translate3d(100px, -200px, -400px) rotatex(90deg) rotatez(-100deg);
+        z-index: 4;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      
+      #floor {
+        background: url('images/background/woodplanks2.png');
+        background-size: 100% 100%;
+        width: 700px;
+        height: 700px;
+        transform: translate3d(0px, 30%, -200px);
+        z-index: 2;
+        clip-path: circle(50% at 50% 50%);
+        animation: spinny 24s linear infinite;
+      }
+
+      #extreme {
+        position: absolute;
+        display: inline-block;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+      }
+      
+      #staircaseimg {
+        background-image: url('images/foreground/stairs.png');
+        background-size: 100% 100%;
+        height: 600px;
+        width: 700px;
+        transform: translate3d(100px, -900px, -200px);
+        pointer-events: none;
+      }
+      
+    </style>
+    <script>
+      function door1() {
+        window.location.href="library.html";
+      }
+      function door2() {
+        window.location.href = "catacombs.html";
+      }
+      function door3() {
+        window.location.href = "attic.html";
+      }
+      function autoscroll() {
+        window.scrollTo(-1000, 0);
+      }
+      document.getElementById('elementID').click();
+    </script>
+  </head>
+  <body onload="autoscroll();">
+    <div style="width:1px;height:1px;position:absolute;" id="elementID" onclick="autoscroll()"></div>
+    <span id="extreme">staircase</span>
+    <div id="page">
+      <div id="floor"></div>
+      <div id="door1" class="door" onclick="door1()"></div>
+      <div id="staircaseimg"></div>
+      <div id="door2" class="door" onclick="door2()"></div>
+      <div id="door3" class="door" onclick="door3()"></div>
+    </div>
+  </body>
+</html>

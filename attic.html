@@ -1,0 +1,199 @@
+<html>
+  <head>
+    <title>
+      attic
+    </title>
+    <link rel="icon" href="images/favicon.gif" type="image/gif" />
+    <style>
+      @keyframes perspec {
+        0% {perspective: 800px;}
+        100% {perspective:1100px;}
+      }
+       @keyframes scroll {
+        0% {background-position: 0px 0px;}
+        100% {background-position: 450px 0px;}
+      }
+      @keyframes radical {
+        0% {transform: rotate3d(1, 1, 1, 0deg);}
+        100% {transform: rotate3d(1, 1, 1, 360deg);}
+      }
+	  
+	  @keyframes twinkle {
+        0% {background: #1827ad;}
+        40% {background: #1827ad;}
+        50% {background: #40afff;}
+		60% {background: #1827ad;}
+        100% {background: #1827ad;}
+	  }
+	  
+	  @keyframes twinkle2 {
+        0% {background: blue;}
+        40% {background: blue;}
+        50% {background: #00c0ff;}
+		60% {background: blue;}
+        100% {background: blue;}
+	  }
+      
+      body {
+        background: #17106e;
+        transform-style: preserve-3d;
+		animation: twinkle 15s ease-in-out infinite;
+      }
+	  
+	  * {
+	  position: absolute;
+	  transform-style: preserve-3d;
+	  }
+	  
+      #page {
+        background: BLUE;
+        width: 900px;
+        height: 500px;
+        transform: translate3d(60px, 20px, -5000px);
+        z-index: -10;
+        animation: perspec 5s linear alternate-reverse infinite, twinkle2 15s ease-in-out infinite;;
+	      transform-style: flat;
+      }
+      
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+        width: 100px;
+        height: 100px;
+      }
+      
+      #door1 {
+        width: 150px;
+        height: 200px;
+        transform: translate3d(150px, 360px, 250px) rotatey(90deg) rotatex(90deg);
+        opacity: 0.8;
+        z-index: 2;
+      }
+      
+      #door2 {
+        width: 250px;
+        height: 250px;
+        transform: translate3d(900px, 200px, 0px) rotatey(90deg);
+        z-index: 2;
+      }
+	  
+	  .surface {
+	    background-image: url('images/background/rotten wood.png');
+  		background-size: 100% 100%;
+      width: 450px;
+      height: 700px;
+	  }
+	  
+    #floor {
+      transform: translate3d(-200px, 200px, -200px) rotatex(90deg);
+      z-index: 2;
+	  	animation: scroll 5s linear infinite;
+    }
+	  
+	  #floor2 {
+      transform: translate3d(200px, 200px, -200px) rotatex(90deg);
+      z-index: 2;
+  		animation: scroll 5s linear reverse infinite;
+    }
+	  
+	  #floor3 {
+      transform: translate3d(600px, 200px, -200px) rotatex(90deg);
+      z-index: 2;
+  		animation: scroll 5s linear infinite;
+    }
+	  
+	  #northwall1 {
+      transform: translate3d(-400px, 200px, -2100px) scalex(3.5);
+      z-index: 2;
+  		animation: scroll 5s linear reverse infinite;
+    }
+	  
+	  #northwall2 {
+      transform: translate3d(850px, 200px, -2100px) scalex(3);
+      z-index: 2;
+		  animation: scroll 5s linear infinite;
+    }
+      
+    #northwall2 {
+      transform: translate3d(850px, 200px, -2100px) scalex(3);
+      z-index: 2;
+	  	animation: scroll 5s linear infinite;
+    }
+	  
+	  .surface .brighten {
+  		width: 100%;
+  		height: 100%;
+  		backdrop-filter: brightness(1.3);
+	  }
+	  
+	  .surface .ambiguousbrighten {
+  		width: 100%;
+  		height: 100%;
+  		backdrop-filter: brightness(1.1);
+	  }
+	  
+	  .surface .darken {
+		  width: 100%;
+		  height: 100%;
+		  backdrop-filter: brightness(.8);
+	  }
+	  
+	  #northslant1 {
+      transform: translate3d(-500px, -400px, -2100px) scalex(3.5) rotatex(-45deg);
+      z-index: 3;
+  		animation: scroll 5s linear reverse infinite;
+    }
+	  
+	  #northslant2 {
+      transform: translate3d(850px, -400px, -2100px) scalex(3.5) rotatex(-45deg);
+      z-index: 2;
+  		animation: scroll 5s linear infinite;
+    }
+	  
+	  #rightwall {
+	    width: 3800px;
+	    height: 1400px;
+      transform: translate3d(140px, -350px, -3200px) rotatey(90deg);
+      z-index: 1;
+  		animation: scroll 6s linear infinite;
+  		transform-style: preserve-3d;
+    }
+
+    #extreme {
+      display: inline-block;
+      top: -6px;
+      z-index: 100;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      animation: radical 4s linear infinite;
+      transform-style: flat;
+    }
+  
+    </style>
+    <script>
+      function door1() {
+        window.location.href = "staircase.html";
+      }
+      function door2() {
+        window.location.href = "placeholder.html";
+      }
+      function door3() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+  </head>
+  <body>
+    <span id="extreme">attic</span>
+    <div id="page">
+      <div class="surface" id="floor"><div class="darken"></div></div>
+  	  <div class="surface" id="floor2"><div class="darken"></div></div>
+  	  <div class="surface" id="floor3"><div class="darken"></div></div>
+      <div class="surface" id="northwall1"></div>
+  	  <div class="surface" id="northwall2"></div>
+      <div class="surface" id="northslant1"><div class="brighten"></div></div>
+  	  <div class="surface" id="northslant2"><div class="brighten"></div></div>
+  	  <div class="surface" id="rightwall"><div class="ambiguousbrighten"></div></div>
+      <div id="door1" class="door" onclick="door1()"></div>
+      <div id="door2" class="door" onclick="door2()"></div>
+    </div>
+  </body>
+</html>

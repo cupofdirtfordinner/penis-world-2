@@ -38,6 +38,13 @@
       
       body {
         background: #171717;
+        background-image: url('images/background/catacombs background skull.png');
+        background-size: 100px 100px;
+        transform-style: preserve-3d;
+        overflow: hidden;
+      }
+      
+      *, #page * {
         transform-style: preserve-3d;
       }
       
@@ -47,6 +54,7 @@
         height: 400px;
         transform: translate3d(300px, 100px, 0px);
         animation: perspec 5s linear alternate-reverse infinite;
+        transform-style: flat;
       }
       
       .door {
@@ -62,6 +70,13 @@
         transform: translate3d(520px, -2000px,  200px) rotatex(30deg);
         opacity: 0.6;
         z-index: 1;
+      }
+      
+      #door2 {
+        width: 175px;
+        height: 215px;
+        transform: translate3d(220px, -1500px, -800px) rotatex(-10deg);
+        z-index: 2;
       }
 
       #floor {
@@ -81,8 +96,6 @@
         z-index: 2;
         animation: scroll 5s linear infinite;
       }
-      
-      
 
       .wall:nth-child(odd), .wall2:nth-child(even) {
         animation: scroll 5s linear reverse infinite;
@@ -139,7 +152,9 @@
         -webkit-text-fill-color: black;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: white;
+        position: absolute;
       }
+      
     </style>
     <script>
       function door1() {
@@ -151,9 +166,14 @@
       function door3() {
         window.location.href = "placeholder.html";
       }
+      function autoscroll() {
+        window.scrollTo(-1000, 0);
+      }
+      document.getElementById('elementID').click();
     </script>
   </head>
-  <body>
+  <body onload="autoscroll();">
+    <div style="width:100vw;height:100vh;position:absolute;top:-8px;left:-8px;pointer-events:none;backdrop-effects:blur(2px);background-color:rgba(0,0,0,0.5)" id="elementID" onclick="autoscroll"></div>
     <span id="extreme">catacombs</span>
     <div id="page">
       <div id="floor"></div>
@@ -168,6 +188,7 @@
       <div class="wall2 all" id="Wallright4"></div>
       <div class="wall2 all" id="Wallright5"></div>
       <div id="door1" class="door" onclick="door1()"></div>
+      <div id="door2" class="door" onclick="door2()"></div>
     </div>
   </body>
 </html>
