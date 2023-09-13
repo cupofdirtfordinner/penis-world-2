@@ -1,0 +1,303 @@
+<html>
+
+  <!--this kid next to me is leaking sound through his airpods and is listening to a song that keeps repeating the chorus "too many gays" during a test. i just had to write that down somewhere-->
+
+  <head>
+    <title>
+      cathedral
+    </title>
+    <link rel="icon" href="images/favicon.gif" type="image/gif" />
+    <style>
+      @keyframes scroll {
+        0% {background-position: 0px 0px; }
+        100% {background-position: 1024px 0px; }
+      }
+      
+      @keyframes scroll2 {
+        0% {background-position: 0px 0px; }
+        100% {background-position: 500px 0px; }
+      }
+      
+      @keyframes scroll3 {
+        0% {background-position: 0px 0px; }
+        100% {background-position: 300px 0px; }
+      }
+
+      @keyframes radical {
+        0% {transform: rotate3d(1, 1, 1, 0deg); }
+        100% {transform: rotate3d(1, 1, 1, 360deg); }
+      }
+      
+      @keyframes perspec {
+        0% {perspective-origin:50% 85%;}
+        100% {perspective-origin:50% 65%;}
+      }
+
+      body {
+        background: black;
+        transform-style: preserve-3d;
+      }
+
+      * {
+        position: absolute;
+      }
+
+	  #page, .rowofpews {
+        perspective-origin: 10% 70%;
+        animation: perspec 4s ease-in-out alternate-reverse infinite;
+	  }
+
+      #page {
+        background: beige;
+        width: 2100px;
+        height: 900px;
+        transform: translate3d(0px, 20px, 0px);
+        perspective: 600px;
+        transform-style: flat;
+	    	zoom: 60%;
+	    	background-size: 100%;
+      }
+
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+        width: 100px;
+        height: 100px;
+      }
+
+      #door1 {
+        width: 350px;
+        height: 400px;
+        transform: translate3d(280px, 1100px, -200px) ;
+        opacity: 0.6;
+        z-index: -1;
+      }
+
+      #floor {
+        background: url('images/background/woodplanks3.png');
+        background-size: 512px 512px;
+        width: 3500px;
+        height: 2000px;
+        transform: translate3d(-800px, 150px, -1200px) rotatex(90deg);
+        transform-style: preserve-3d;
+        animation: scroll 4.3s linear reverse infinite;
+      }
+      
+      #stage {
+        background: url('images/background/woodplanks3.png');
+        background-size: 512px 512px;
+        width: 3500px;
+        height: 800px;
+        transform: translate3d(-800px, 150px, -2600px) rotatex(55deg);
+        transform-style: preserve-3d;
+        animation: scroll 4.3s linear reverse infinite;
+        z-index: 300;
+      }
+
+      .seats {
+        background-image: url('images/foreground/pews.png');
+        background-size: 250px 300px;
+        width: 600px;
+        /*doesnt matter, javascript needs to set this for the rest of the javascript to work for some reason*/
+        height: 300px;
+        transform-style: preserve-3d;
+        position: absolute;
+        z-index: 100;
+	    	pointer-events: none;
+	    	animation: scroll2 5.22s ease-in-out reverse infinite;
+      }
+      
+      .lights {
+        background-image: url('images/foreground/hanging light.png');
+        background-size: 100% 100%;
+        width: 300px;
+        height: 400px;
+        transform-style: preserve-3d;
+        position: absolute;
+        z-index: 100;
+	    	pointer-events: none;
+	    	transform: translate3d(0px, -1400px, 0px) rotatex(10deg);
+	    	animation: scroll3 5.22s ease-in-out reverse infinite;
+      }
+	  
+  	  .seats:nth-child(4n) {
+          background-image: url( beh );
+  	  }
+
+
+      #extreme {
+        display: inline-block;
+        top: -6px;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+        transform-style: flat;
+      }
+
+      .rowofpews {
+        position: absolute;
+        perspective: 600px;
+        width: 100%;
+        height: 100%;
+      }
+
+      #cathedralArchLeft {
+        transform: translate3d(-800px, -850px, -1450px) rotatey(90deg);
+        animation: scroll 3s linear infinite;
+	    }
+	    
+	    #cathedralArchRight {
+        transform: translate3d(400px, -850px, -1450px) rotatey(90deg);
+        animation: scroll 3s linear infinite;
+	    }
+	    
+	    #stainedglassleft {
+        transform: translate3d(-1000px, -1000px, -1050px) rotatey(90deg);
+	      z-index: 100;
+        background: url('images/background/stained glass 2.png');
+	      background-size: 100% 100%;
+	      width: 1500px;
+	      height: 2000px;
+	    }
+	    
+	    #stainedglassright {
+        transform: translate3d(1600px, -1000px, -1050px) rotatey(90deg);
+	      z-index: 100;
+        background: url('images/background/stained glass 2.png');
+	      background-size: 100% 100%;
+	      width: 1500px;
+	      height: 2000px;
+	    }
+	    
+	    #wallleft {
+        transform: translate3d(-2000px, -850px, -1440px) rotatey(90deg);
+        z-index: 99;
+        background: url('images/background/cathedral_wall.png');
+        background-size: 256px 100%;
+        width: 2480px;
+        height: 2000px;
+        animation: scroll 8.3s linear reverse infinite;
+	    }
+	    
+	    #wallright {
+        transform: translate3d(1460px, -850px, -1440px) rotatey(90deg);
+        z-index: 99;
+        background: url('images/background/cathedral_wall.png');
+        background-size: 256px 100%;
+        width: 2480px;
+        height: 2000px;
+	      animation: scroll 8.3s linear reverse infinite;
+	    }
+	    
+	    .arches {
+        transform-style: preserve-3d;
+	    	z-index: 901;
+        background: url('images/background/cathedral_arch.png');
+        background-size: 512px 100%;
+        width: 2480px;
+        height: 2000px;
+	    }
+
+    </style>
+    <script>
+      function door1() {
+        window.location.href = "catacombs.html";
+      }
+
+      function door2() {
+        window.location.href = "placeholder.html";
+      }
+
+      function door3() {
+        window.location.href = "placeholder.html";
+      }
+
+      var rows = 0
+
+      function seating(multiple) {
+        var top = 900
+        var leftoffset = 850
+        var zoffset = -250
+        var distance = 150
+        var rotation = -10
+
+        var multiple2 = multiple * document.getElementById("rowofpews0").children.length;
+        let forl = 0
+        var seats = document.querySelectorAll(".seats");
+        for (let i = multiple2; i < seats.length; i++) {
+          forl += 1;
+          seats[i].style.width = "250px"
+          seats[i].style.transformStyle = "preserve-3d"
+          seats[i].style.transform = "translate3d("+ (parseInt(seats[i].style.width.slice(0, -2)) * (forl + 1) - leftoffset)+"px, "+ top +"px, "+ (zoffset + (-multiple * distance) ) +"px) rotatex("+ rotation +"deg)"
+          seats[i].parentElement.style.zIndex = 200 - rows;
+          console.log(seats[i].parentElement.style.zIndex)
+		  
+        }
+      }
+
+      function duplicate() {
+        let row1 = document.getElementById("rowofpews" + rows);
+        let clone = row1.cloneNode(true);
+        rows += 1
+        clone.id = 'rowofpews' + rows;
+        row1.after(clone);
+        seating(rows)
+      }
+
+	  /*const interval = setInterval(function() {
+		duplicate()
+	  }, 100);*/
+    
+			function TheStartingLine() {
+      	seating(0)
+        duplicate()
+        duplicate()
+        duplicate()
+        duplicate()
+        duplicate()
+        duplicate()
+        duplicate()
+        duplicate()
+        duplicate()
+        duplicate()
+      }
+
+    </script>
+  </head>
+
+  <body onload="TheStartingLine()">
+    <span id="extreme">cathedral</span>
+    <div id="page">
+      <div id="floor"></div>
+
+      <div class="rowofpews" id="rowofpews0">
+        <div class="seats"> <div class="lights"></div> </div>
+        <div class="seats"> <div class="lights"></div> </div>
+		
+        <div class="seats"> <div class="lights"></div> </div>
+        <div class="seats"> <div class="lights"></div> </div>
+        <div class="seats"> <div class="lights"></div> </div>
+		
+        <div class="seats"> <div class="lights"></div> </div>
+        <div class="seats"> <div class="lights"></div> </div>
+        <div class="seats"> <div class="lights"></div> </div>
+		
+        <div class="seats"> <div class="lights"></div> </div>
+        <div class="seats"> <div class="lights"></div> </div>
+        <div class="seats"> <div class="lights"></div> </div>
+      </div>
+
+      <div id="cathedralArchLeft" class="arches"></div>
+      <div id="cathedralArchRight" class="arches"></div>
+      <div id="stainedglassleft" class="arches"></div>
+      <div id="stainedglassright" class="arches"></div>
+      <div id="wallleft" class="arches"></div>
+      <div id="wallright" class="arches"></div>
+      <div id="riser"></div>
+      <div id="stage"></div>
+      
+	  <div id="door1" class="door" onclick="door1()"></div>
+    </div>
+  </body>
+
+</html>

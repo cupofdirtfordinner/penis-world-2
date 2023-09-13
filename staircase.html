@@ -6,8 +6,10 @@
     <link rel="icon" href="images/favicon.gif" type="image/gif" />
     <style>
       @keyframes perspec {
-        0% {perspective: 900px;}
-        100% {perspective: 500px;}
+        0% {perspective: 900px;
+		perspective-origin: 10% 50%;}
+        100% {perspective: 500px;
+		perspective-origin: 90% 50%;}
       }
        @keyframes scroll {
         0% {background-position: 0px 0px;}
@@ -21,10 +23,26 @@
         0% {transform: translate3d(0px, 30%, -200px) rotatey(0deg) rotatex(90deg);}
         100% {transform: translate3d(0px, 30%, -200px) rotatey(360deg) rotatex(90deg);}
       }
+	  @keyframes beat {
+        0% {transform: translate3d(560px, 320px, -200px) rotatez(-50deg) skew(0deg, 0deg);}
+        20% {transform: translate3d(560px, 320px, -200px) rotatez(-40deg) skew(5deg, 10deg);}
+        100% {transform: translate3d(560px, 320px, -200px) rotatez(-50deg) skew(0deg, 0deg);}
+      }
+	  
+	  @keyframes beatclick {
+        0% {transform: translate3d(560px, 320px, -200px) rotatez(-50deg) skew(0deg, 0deg);}
+        20% {transform: translate3d(560px, 325px, -200px) rotatez(-30deg) skew(25deg, 15deg);}
+        100% {transform: translate3d(560px, 320px, -200px)  rotatez(-50deg) skew(0deg, 0deg);}
+      }
       
       @keyframes gentleShake {
         0% {transform: translate3d(60px, 20px, 0px) skew(2deg, 2deg)}
         100% {transform: translate3d(60px, 20px, 0px) skew(-2deg, -2deg)}
+      }
+	  
+	  @keyframes fan {
+        0% {transform: translate3d(0px, -200px, -300px) rotatex(100deg) rotatez(0deg)}
+        100% {transform: translate3d(0px, -200px, -300px) rotatex(100deg) rotatez(360deg)}
       }
       
       body {
@@ -33,13 +51,19 @@
         overflow: scroll;
       }
       
+      * {
+        position: absolute;
+      }
+      
       #page {
-        background: #8818a1;
+		background: rgb(214,0,255);
+		background: radial-gradient(circle, rgba(214,0,255,1) 0%, rgba(145,8,218,1) 36%);
         width: 700px;
         height: 700px;
         transform: translate3d(60px, 20px, 0px);
         animation: perspec 10s linear alternate-reverse infinite, gentleShake 5s ease-in-out alternate-reverse infinite;
         perspective: 600px;
+        zoom: 90%;
       }
       
       .door {
@@ -52,7 +76,7 @@
       #door1 {
         width: 150px;
         height: 200px;
-        transform: translate3d(620px, -700px, -150px) rotatey(90deg);
+        transform: translate3d(620px, 0px, -150px) rotatey(90deg);
         opacity: 0.7;
         z-index: 4;
       }
@@ -82,7 +106,7 @@
         width: 700px;
         height: 700px;
         transform: translate3d(0px, 30%, -200px);
-        z-index: 2;
+        z-index: 0;
         clip-path: circle(50% at 50% 50%);
         animation: spinny 24s linear infinite;
       }
@@ -100,8 +124,92 @@
         background-size: 100% 100%;
         height: 600px;
         width: 700px;
-        transform: translate3d(100px, -900px, -200px);
+        z-index: 4;
+        transform: translate3d(100px, 0px, -200px);
         pointer-events: none;
+      }
+      
+      #fan {
+        width: 500px;
+        height: 500px;
+        transform: translate3d(0px, 0px, -300px) rotatex(90deg);
+        z-index: 4;
+        background-image: url('images/foreground/fan blades.png');
+        background-size: 100% 100%;
+		animation: fan 5s linear infinite;
+		pointer-events: none;
+      }
+	  
+	  #plant1 {
+        background-image: url('images/foreground/potted plant 1.png');
+        background-size: 100% 100%;
+        height: 400px;
+        width: 250px;
+        z-index: 3;
+        transform: translate3d(0px, 180px, 0px);
+        pointer-events: none;
+      }
+	  
+	  #plant2 {
+        background-image: url('images/foreground/potted plant 2.png');
+        background-size: 100% 100%;
+        height: 250px;
+        width: 120px;
+        z-index: 1;
+        transform: translate3d(50px, 340px, -300px);
+        pointer-events: none;
+      }
+	  
+	  #plant3 {
+        background-image: url('images/foreground/potted plant 3.png');
+        background-size: 100% 100%;
+        height: 250px;
+        width: 120px;
+        z-index: 4;
+        transform: translate3d(400px, 0px, 50px);
+        pointer-events: none;
+      }
+	  
+	  #plant4 {
+        background-image: url('images/foreground/potted plant 4.png');
+        background-size: 100% 100%;
+        height: 250px;
+        width: 250px;
+        z-index: 1;
+        transform: translate3d(100px, 340px, -400px);
+        pointer-events: none;
+      }
+	  
+	  #pillar {
+        background-image: url('images/foreground/pillar_short.png');
+        background-size: 100% 100%;
+        height: 250px;
+        width: 250px;
+        z-index: 1;
+        transform: translate3d(500px, 340px, -250px);
+        pointer-events: none;
+      }
+	  
+	  #heart {
+		background-image: url('images/foreground/heart.png');
+        background-size: 100% 100%;
+        height: 100px;
+        width: 100px;
+		animation: beat 1s ease-in-out infinite;
+		z-index: 2;
+      }
+	  
+	  #heart {
+		background-image: url('images/foreground/heart.png');
+        background-size: 100% 100%;
+        height: 100px;
+        width: 100px;
+		animation: beat 1s ease-in-out infinite;
+		z-index: 2;
+      }
+	  
+	  #heart:hover {
+		animation: beatclick 0.8s ease-in-out infinite;
       }
       
     </style>
@@ -130,6 +238,13 @@
       <div id="staircaseimg"></div>
       <div id="door2" class="door" onclick="door2()"></div>
       <div id="door3" class="door" onclick="door3()"></div>
+      <div id="fan"></div>
+	  <div id="plant1"></div>
+	  <div id="plant2"></div>
+	  <div id="plant3"></div>
+	  <div id="plant4"></div>
+	  <div id="pillar"></div>
+	  <div id="heart"></div>
     </div>
   </body>
 </html>
