@@ -17,34 +17,34 @@
         0% {transform: rotate3d(1, 1, 1, 0deg);}
         100% {transform: rotate3d(1, 1, 1, 360deg);}
       }
-	  
-	  @keyframes twinkle {
+  	  
+  	  @keyframes twinkle {
         0% {background: #1827ad;}
         40% {background: #1827ad;}
         50% {background: #40afff;}
-		60% {background: #1827ad;}
+        60% {background: #1827ad;}
         100% {background: #1827ad;}
-	  }
-	  
-	  @keyframes twinkle2 {
+  	  }
+  	  
+  	  @keyframes twinkle2 {
         0% {background: blue;}
         40% {background: blue;}
         50% {background: #00c0ff;}
-		60% {background: blue;}
+        60% {background: blue;}
         100% {background: blue;}
-	  }
-      
+  	  }
+        
       body {
         background: #17106e;
         transform-style: preserve-3d;
-		animation: twinkle 15s ease-in-out infinite;
+      	animation: twinkle 15s ease-in-out infinite;
       }
-	  
-	  * {
-	  position: absolute;
-	  transform-style: preserve-3d;
-	  }
-	  
+  	  
+  	  * {
+    	  position: absolute;
+    	  transform-style: preserve-3d;
+  	  }
+  	  
       #page {
         background: BLUE;
         width: 900px;
@@ -52,8 +52,9 @@
         transform: translate3d(60px, 20px, -5000px);
         z-index: -10;
         animation: perspec 5s linear alternate-reverse infinite, twinkle2 15s ease-in-out infinite;;
-	    transform-style: flat;
-		perspective-origin: 50% 50%;
+        transform-style: flat;
+      	perspective-origin: 50% 50%;
+      	zoom: 90%;
       }
       
       .door {
@@ -64,9 +65,9 @@
       }
       
       #door1 {
-        width: 150px;
-        height: 200px;
-        transform: translate3d(150px, 360px, 250px) rotatey(90deg) rotatex(90deg);
+        width: 350px;
+        height: 300px;
+        transform: translate3d(-100px, 420px, -100px) rotatey(110deg) rotatex(90deg);
         opacity: 0.8;
         z-index: 2;
       }
@@ -74,107 +75,215 @@
       #door2 {
         width: 250px;
         height: 250px;
-        transform: translate3d(900px, 200px, 0px) rotatey(90deg);
+        transform: translate3d(900px, 170px, -100px) rotatey(90deg);
         z-index: 2;
       }
-	  
-	  .surface {
-      background-image: url('images/background/rotten wood.png');
-      background-size: 100% 100%;
-  		width: 450px;
-  		height: 700px;
-	  }
-	  
-    #floor {
-      transform: translate3d(-200px, 200px, -200px) rotatex(90deg);
-      z-index: 2;
-	  	animation: scroll 5s linear infinite;
-    }
-	  
-    #floor2 {
-      transform: translate3d(200px, 200px, -200px) rotatex(90deg);
-      z-index: 2;
-  	  animation: scroll 5s linear reverse infinite;
-    }
-	
-  	#rug {
-      background-image: url('images/foreground/rug.jpg');
-      transform: translate3d(200px, 210px, -200px) rotatex(90deg);
-      z-index: 300;
-    }
   	  
-  	#floor3 {
-      transform: translate3d(600px, 200px, -200px) rotatex(90deg);
-      z-index: 2;
-  	  animation: scroll 5s linear infinite;
-    }
+  	  .surface {
+        background-image: url('images/background/rotten wood.png');
+        background-size: 100% 100%;
+    		width: 450px;
+    		height: 700px;
+  	  }
+  	  
+      #floor {
+        transform: translate3d(-200px, 200px, -200px) rotatex(90deg);
+        z-index: 2;
+  	  	animation: scroll 5s linear infinite;
+      }
+  	  
+      #floor2 {
+        transform: translate3d(200px, 200px, -200px) rotatex(90deg);
+        z-index: 2;
+    	  animation: scroll 5s linear reverse infinite;
+      }
+  	
+    	#rug {
+        background-image: url('images/foreground/rug.jpg');
+        width: 400px;
+        height: 450px;
+        transform: translate3d(550px, 320px, 0px) rotatex(90deg) rotatez(95deg);
+        z-index: 9;
+        background-size: 100% 100%;
+      }
 	  
-	  #northwall1 {
-      transform: translate3d(-400px, 200px, -2100px) scalex(3.5);
-      z-index: 2;
-  	  animation: scroll 5s linear reverse infinite;
-    }
-	  
-	  #northwall2 {
-      transform: translate3d(850px, 200px, -2100px) scalex(3);
-      z-index: 2;
-		  animation: scroll 5s linear infinite;
-    }
-      
-    #northwall3 {
-      transform: translate3d(850px, 200px, -2100px) scalex(3);
-      z-index: 2;
-	  	animation: scroll 5s linear infinite;
-    }
-	  
-	  .surface .brighten {
-  		width: 100%;
-  		height: 100%;
-  		backdrop-filter: brightness(1.3);
-	  }
-	  
-	  .surface .ambiguousbrighten {
-  		width: 100%;
-  		height: 100%;
-  		backdrop-filter: brightness(1.1);
-	  }
-	  
-	  .surface .darken {
-		  width: 100%;
-		  height: 100%;
-		  backdrop-filter: brightness(.8);
-	  }
-	  
-	  #northslant1 {
-      transform: translate3d(-500px, -400px, -2100px) scalex(3.5) rotatex(-45deg);
-      z-index: 3;
-  		animation: scroll 5s linear reverse infinite;
-    }
-	  
-	  #northslant2 {
-      transform: translate3d(850px, -400px, -2100px) scalex(3.5) rotatex(-45deg);
-      z-index: 2;
-  		animation: scroll 5s linear infinite;
-    }
-	  
-	  #rightwall {
-	    width: 1000px;
-	    height: 700px;
-      transform: translate3d(540px, -50px, -320px) rotatey(90deg);
-      z-index: 1;
-  		animation: scroll 6s linear infinite;
-  		transform-style: preserve-3d;
-    }
-
-    #extreme {
-      display: inline-block;
-      top: -6px;
-      z-index: 100;
-      font-family: "Comic Sans MS", "Comic Sans", cursive;
-      animation: radical 4s linear infinite;
-      transform-style: flat;
-    }
+    	#sofa {
+        background-image: url('images/foreground/ugly floral couch.png');
+        width: 550px;
+        height: 550px;
+        transform: translate3d(450px, 150px, -100px) scalex(-1);
+        background-size: 100% 100%;
+  		  z-index: 10;
+      }
+    	  
+    	#floor3 {
+        transform: translate3d(600px, 200px, -200px) rotatex(90deg);
+        z-index: 2;
+    	  animation: scroll 5s linear infinite;
+      }
+  	  
+  	  #northwall1 {
+        transform: translate3d(-400px, 200px, -2100px) scalex(3.5);
+        z-index: 2;
+    	  animation: scroll 5s linear reverse infinite;
+      }
+  	  
+  	  #northwall2 {
+        transform: translate3d(850px, 200px, -2100px) scalex(3);
+        z-index: 2;
+  		  animation: scroll 5s linear infinite;
+      }
+        
+      #northwall3 {
+        transform: translate3d(850px, 200px, -2100px) scalex(3);
+        z-index: 2;
+  	  	animation: scroll 5s linear infinite;
+      }
+  	  
+  	  .surface .brighten {
+    		width: 100%;
+    		height: 100%;
+    		backdrop-filter: brightness(1.3);
+  	  }
+  	  
+  	  .surface .ambiguousbrighten {
+    		width: 100%;
+    		height: 100%;
+    		backdrop-filter: brightness(1.1);
+  	  }
+  	  
+  	  .surface .darken {
+  		  width: 100%;
+  		  height: 100%;
+  		  backdrop-filter: brightness(.8);
+  	  }
+  	  
+  	  #northslant1 {
+        transform: translate3d(-500px, -400px, -2100px) scalex(3.5) rotatex(-45deg);
+        z-index: 3;
+    		animation: scroll 5s linear reverse infinite;
+      }
+  	  
+  	  #northslant2 {
+        transform: translate3d(850px, -400px, -2100px) scalex(3.5) rotatex(-45deg);
+        z-index: 2;
+    		animation: scroll 5s linear infinite;
+      }
+  	  
+  	  #rightwall {
+  	    width: 1000px;
+  	    height: 700px;
+        transform: translate3d(540px, -50px, -320px) rotatey(90deg);
+        z-index: 1;
+    		animation: scroll 6s linear infinite;
+    		transform-style: preserve-3d;
+    		background-size: 450px 33%;
+      }
   
+      #extreme {
+        display: inline-block;
+        top: -6px;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+        transform-style: flat;
+      }
+      
+      #crate1 {
+        background-image: url('images/foreground/crate.png');
+        width: 300px;
+        height: 180px;
+        transform: translate3d(-50px, 400px, -100px) scalex(-1);
+        background-size: 100% 100%;
+		    z-index: 10;
+		    pointer-events: none;
+      }
+      
+      #nightstand {
+        background-image: url('images/foreground/old nightstand.png');
+        width: 240px;
+        height: 280px;
+        transform: translate3d(300px, 400px, -200px);
+        background-size: 100% 100%;
+		    z-index: 10;
+      }
+      
+      #beam {
+        background-image: url('images/foreground/wood beam.png');
+        width: 1500px;
+        height: 50px;
+        transform: translate3d(-300px, -50px, -200px);
+        background-size: 100% 100%;
+		    z-index: 10;
+		    filter: hue-rotate(-30deg) brightness(.8) contrast(50%) saturate(3);
+      }
+      
+      #crate2 {
+        background-image: url('images/foreground/crate 2.png');
+        width: 200px;
+        height: 200px;
+        transform: translate3d(20px, 300px, -100px) scalex(-1);
+        background-size: 100% 100%;
+		    z-index: 10;
+      }
+      
+      #lamp {
+        background-image: url('images/foreground/lamp.png');
+        width: 190px;
+        height: 480px;
+        transform: translate3d(200px, 100px, -200px) scalex(-1);
+        background-size: 100% 100%;
+		    z-index: 9;
+      }
+      
+      #crate3 {
+        background-image: url('images/foreground/crate 3.png');
+        width: 210px;
+        height: 210px;
+        transform: translate3d(800px, 400px, 200px) scalex(1);
+        background-size: 100% 100%;
+		    z-index: 90;
+		    filter: blur(4px) brightness(0.6);
+      }
+      
+      #crate4 {
+        background-image: url('images/foreground/crate 3.png');
+        width: 210px;
+        height: 210px;
+        transform: translate3d(820px, 260px, 200px) scalex(-.9);
+        background-size: 100% 100%;
+        z-index: 91;
+        filter: blur(5px) brightness(0.6);
+      }
+      
+      #light {
+        transform: translate3d(850px, -550px, -2100px) scalex(3.5) rotatex(-45deg);
+        z-index: 9;
+        background: white;
+        width: 200px;
+        height: 800px;
+      }
+      
+      #lightblur {
+        transform: translate3d(840px, -570px, -2100px) scalex(3.5) rotatex(-45deg);
+        z-index: 10;
+        background: white;
+        width: 220px;
+        height: 870px;
+        opacity: 0.99;
+        filter: blur(9px);
+      }
+      
+      #lightblur2 {
+        transform: translate3d(670px, 480px, -500px) scalex(3.5) rotatex(90deg);
+        z-index: 9;
+        background: white;
+        width: 130px;
+        height: 470px;
+        opacity: 0.4;
+        filter: blur(12px);
+      }
+    
     </style>
     <script>
       function door1() {
@@ -203,6 +312,18 @@
       <div id="door2" class="door" onclick="door2()"></div>
       
       <div id="rug"></div>
+      <div id="sofa"></div>
+      <div id="crate1"></div>
+      <div id="crate2"></div>
+      <div id="chest"></div>
+      <div id="crate3"></div>
+      <div id="crate4"></div>
+      <div id="light"></div>
+      <div id="lightblur"></div>
+      <div id="lightblur2"></div>
+      <div id="lamp"></div>
+	    <div id="nightstand"></div>
+	    <div id="beam"></div>
 	  
 	</div>
   </body>
