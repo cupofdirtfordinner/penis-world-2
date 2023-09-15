@@ -3,114 +3,50 @@
     <title>city (really unfinished and fucked)</title>
     <style>
       @keyframes radical {
-        0% {
-          transform: rotate3d(1, 1, 1, 0deg);
-        }
-
-        100% {
-          transform: rotate3d(1, 1, 1, 360deg);
-        }
-      }
-
-      @keyframes skew {
-        0% {
-          height: 120
-        }
-
-        50% {
-          height: 160
-        }
-
-        100% {
-          height: 120
-        }
-      }
-
-      @keyframes speech {
-        0% {
-          transform: rotate3d(0, 1, 0, 61.7deg);
-        }
-
-        100% {
-          transform: rotate3d(0, 1, 0, -118.3deg);
-        }
+        0% {transform: rotate3d(1, 1, 1, 0deg);}
+      100% {transform: rotate3d(1, 1, 1, 360deg);}
       }
 
       @keyframes perspec {
-        0% {
-          perspective: 	500px;
-        }
-
-        50% {
-          perspective: 260px;
-        }
-
-        100% {
-          perspective: 500px;
-        }
+        0% {perspective: 	500px;}
+        50% {perspective: 260px;}
+        100% {perspective: 500px;}
       }
 
       @keyframes perspec2 {
-        0% {
-          transform: rotateX(2deg);
-        }
-
-        50% {
-          transform: rotateX(-13deg);
-        }
-
-        100% {
-          transform: rotateX(2deg);
-        }
+        0% {transform: rotateX(2deg);}
+        50% {transform: rotateX(-13deg);}
+        100% {transform: rotateX(2deg);}
       }
 
       @keyframes scroll {
         0% {background-position: 0px 0px;}
-
-        100% {background-position: 400px 0px; }
-      }
-
-
-      @keyframes texturestretch {
-        0% {
-          background-size: 100% 500%;
-          background-position: 0px 100%;
-        }
-
-        100% {
-          background-size: 100% 500%;
-          background-position: 0px 500%;
-        }
+        100% {background-position: 400px 0px;}
       }
 
       @keyframes rotate {
-        0% {
-          transform: rotateZ(10deg);
-        }
-
-        100% {
-          transform: rotateZ(-10deg);
-        }
+        0% {transform: rotateZ(10deg);}
+        100% {transform: rotateZ(-10deg);}
       }
 
-      body {
-        background-color: green;
-      }
-
+      body {background-color: green;}
       body * {
         position: absolute;
+        transform-style: preserve-3d;
       }
 
       #page {
-        width: 500px;
-        height: 500px;
+        width: 97%;
+        height: 90%;
         background-color: lightgreen;
-        left: 150px;
-        top: 12px;
+        left: 2%;
+        top: 15px;
         perspective: 200px;
-        animation: rotate 20s linear alternate-reverse infinite;
+        //animation: rotate 20s linear alternate-reverse infinite;
         transform-style: preserve-3d;
-        overflow: scroll;
+		    perspective-origin: 50% 50%;
+        overflow: scroll !important;
+        transform-style:preserve-3d;
       }
 
       #extreme {
@@ -124,58 +60,13 @@
         background-image: url('images/foreground/door.png');
         background-size: 100% 100%;
       }
-
-      #floor {
-        width: 930px;
-        height: 250px;
-        background-color: green;
-        background-size: 400px 300px;
-        left: 0px;
-        top: 370px;
-        transform-style: preserve-3d;
-        transform: rotateX(85deg);
-        z-index: -1;
-      }
       
-      #ceiling {
-        width: 930px;
-        height: 250px;
-        background-color: green;
-        background-size: 400px 300px;
-        left: 0px;
-        top: -40px;
-        transform-style: preserve-3d;
-        transform: rotateX(85deg);
-        z-index: -1;
-      }
       
-      #leftwall {
-        width: 930px;
-        height: 500px;
-        background-color: green;
-        background-size: 400px 300px;
-        transform-style: preserve-3d;
-        transform: translate3d(-300px, 60px, -300px) rotateY(85deg);
-        z-index: -1;
-      }
-      #rightwall {
-        width: 930px;
-        height: 500px;
-        background-color: green;
-        background-size: 400px 300px;
-        transform-style: preserve-3d;
-        transform: translate3d(100px, 60px, -300px) rotateY(85deg);
-        z-index: -1;
-      }
-      
-      #penis {
-        display: none;
-      }
 
     </style>
     <script>
       function doorone() {
-        window.location.href = "underpool.html";
+        window.location.href = "beach.html";
       }
 
       function doortwo() {
@@ -185,21 +76,74 @@
       function doorthree() {
         window.location.href = "placeholder.html";
       }
-
-      console.log("type document.getElementById('penis').style.display = 'inherit'; ")
+      
+      document.addEventListener('DOMContentLoaded', function() {
+      buildingGenerator()
+      }, false); //i could just do onload but i thought this was cooler
+   
+   
+      var howfarbackeverythingis = -200
+      
+  	  function buildingGenerator() {
+  	    divFactory(120, 52, 200, 300, 175)
+  	    divFactory(130, 80, 120, 600, 250)
+  	    divFactory(140, 70, 240, 200, 405)
+  	    divFactory(340, 160, 240, 800, 505)
+  	    divFactory(1000, 60, 300, 500, 800)
+      }
+      
+  	    //untesting!!
+      function divFactory(sizex, sizey, height, offsetx, offsety) {
+    		const ceiling = document.createElement("div");
+    		const topwall = document.createElement("div");
+    		const leftwall = document.createElement("div");
+    		const rightwall = document.createElement("div");
+    		const bottomwall = document.createElement("div");
+    		const floor = document.createElement("div");
+        const page = document.getElementById("page")
+        
+        //boilerplate
+        ceiling.style.position = "absolute"
+        ceiling.style.backgroundColor = "blue";
+        ceiling.style.transformStyle = "preserve-3d";
+  	    //dynamic
+        ceiling.style.width = sizex+"px";
+        ceiling.style.height = sizey+"px";
+  	    ceiling.style.transform = "translate3d("+ (offsetx) +"px, "+ (offsety) +"px, "+ (howfarbackeverythingis + height) +"px) rotatex(0deg)"
+  	
+  	    //boilerplate
+        topwall.style.position = "absolute"
+        //topwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        topwall.style.backgroundColor = "red"; //backup
+        topwall.style.transformOrigin = "top";
+        topwall.style.transformStyle = "preserve-3d";
+  	    //dynamic
+        topwall.style.width = sizex+"px";
+        topwall.style.height = height+"px";
+        topwall.style.transform = "translate3d("+ (offsetx) +"px, "+ (offsety) +"px, "+ (howfarbackeverythingis) +"px) rotatex(90deg)"
+        //boilerplate
+        leftwall.style.position = "absolute"
+        //leftwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        leftwall.style.backgroundColor = "darkblue"; //backup
+        
+        leftwall.style.transformOrigin = "top";
+        leftwall.style.transformStyle = "preserve-3d";
+  	    //dynamic
+        leftwall.style.width = sizey+"px";
+        leftwall.style.height = height+"px";
+        leftwall.style.transform = "translate3d("+ (offsetx) +"px, "+ (offsety) +"px, "+ (howfarbackeverythingis) +"px) rotatex(90deg) rotatey(90deg)"
+          
+        page.appendChild(ceiling);
+	     	page.appendChild(topwall);
+	     	page.appendChild(leftwall);
+      }
+	 
+      
     </script>
   </head>
   <body>
-    <p id="extreme">city (really unfinished and fucked)</p>
+    <p id="extreme">city</p>
     <div id="page">
-
-      <div id="floor"></div>
-      <div id="ceiling"></div>
-      <div id="leftwall"></div>
-      <div id="rightwall"></div>
       <div class="door" id="doorone" onclick="doorone()"></div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <p>middle click and scroll around.</p> <br> <!-- if you want a fun little rant, open the console-->
-    <p id="penis">there's a lot of other higher priority rooms to work on first, this is the end of this path right now. I discovered this weird little thing when i made a mistake while making the secret tunnel room, I thought making a city map would be a good use of the concept but it would also add a lot of other paths. I want to bring on some other people to help me out with this, but i struggle with that thought because it would ruin some of the vision of the project for me. like it would no longer be my individual art project, and would turn into an amalgamate of other ideas. that and I just dont know who I would even add that'd actually contribute; all the other projects i've made with friends have fallen through. thanks for exploring.</p>
   </body>

@@ -1,0 +1,36 @@
+<head>
+  <style>
+    #page {
+      perspective: 600px;
+      perspective-origin: 0% 0%;
+      width: 500px;
+      height: 500px;
+    }
+    
+    * {
+      position: absolute;
+      transform-style: preserve-3d;
+    }
+    
+    #a, #b {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSebrZe4wwOqHYjD6ohuiHUc_Hf4VlViIkqTphL5GD&s');
+      width: 200px;
+      height: 200px;
+    }
+    
+    #a {
+      transform: translate3d(100px, 50px, 0px) rotatey(90deg);
+    }
+    
+    #b {
+      transform: translate3d(100px, 100px, 0px) rotateX(90deg);
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="page">fasd
+  <div id="a"></div>
+  <div id="b"></div>
+  </div>
+</body>
