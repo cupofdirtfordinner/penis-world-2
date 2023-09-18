@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>city (really unfinished and fucked)</title>
+    <title>city</title>
     <style>
       @keyframes radical {
         0% {transform: rotate3d(1, 1, 1, 0deg);}
@@ -29,7 +29,10 @@
         100% {transform: rotateZ(-10deg);}
       }
 
-      body {background-color: green;}
+      body {
+        background-color: green;
+      }
+
       body * {
         position: absolute;
         transform-style: preserve-3d;
@@ -41,28 +44,40 @@
         background-color: lightgreen;
         left: 2%;
         top: 15px;
-        perspective: 200px;
-        //animation: rotate 20s linear alternate-reverse infinite;
+        perspective: 300px;
+        animation: rotate 0s linear alternate-reverse infinite;
         transform-style: preserve-3d;
-		    perspective-origin: 50% 50%;
+        perspective-origin: 50% 50%;
         overflow: scroll !important;
-        transform-style:preserve-3d;
+        transform-style: preserve-3d;
       }
 
       #extreme {
-        top: -6px;
+        top: 0px;
         z-index: 100;
         font-family: "Comic Sans MS", "Comic Sans", cursive;
         animation: radical 4s linear infinite;
+        transform-style: flat;
       }
 
       .door {
         background-image: url('images/foreground/door.png');
         background-size: 100% 100%;
       }
-      
-      
 
+      * {
+        transform-style: preserve-3d;
+      }
+
+      .building * {
+		transform-style: preserve-3d;
+		z-index: 1;
+      }
+	  
+    .building {
+	  z-index: 1;
+	  transform-style: preserve-3d;
+	}
     </style>
     <script>
       function doorone() {
@@ -76,71 +91,114 @@
       function doorthree() {
         window.location.href = "placeholder.html";
       }
-      
+
       document.addEventListener('DOMContentLoaded', function() {
-      buildingGenerator()
+        buildingGenerator()
       }, false); //i could just do onload but i thought this was cooler
-   
-   
+
+
       var howfarbackeverythingis = -200
-      
-  	  function buildingGenerator() {
-  	    divFactory(120, 52, 200, 300, 175)
-  	    divFactory(130, 80, 120, 600, 250)
-  	    divFactory(140, 70, 240, 200, 405)
-  	    divFactory(340, 160, 240, 800, 505)
-  	    divFactory(1000, 60, 300, 500, 800)
+      var buildingCount = 0
+
+      function buildingGenerator() {
+        //buildingFactory(size X, size Y, height, offset X,  offset Y)
+        buildingFactory(400, 400, 200, 100, 400)
+        buildingFactory(300, 380, 180, 1000, 50)
+        buildingFactory(300, 240, 180, 800, 850)
+        buildingFactory(400, 500, 280, 80, 900) //one below the top one
+        buildingFactory(300, 300, 250, 2000, 150)
+        buildingFactory(300, 300, 200, 1600, 500)
+        buildingFactory(300, 300, 200, 2000, 900)
+        buildingFactory(300, 300, 400, 1700, 1400)
       }
-      
-  	    //untesting!!
-      function divFactory(sizex, sizey, height, offsetx, offsety) {
-    		const ceiling = document.createElement("div");
-    		const topwall = document.createElement("div");
-    		const leftwall = document.createElement("div");
-    		const rightwall = document.createElement("div");
-    		const bottomwall = document.createElement("div");
-    		const floor = document.createElement("div");
-        const page = document.getElementById("page")
-        
-        //boilerplate
+
+      var floorgenerated = false;
+
+      function buildingFactory(sizex, sizey, height, offsetx, offsety) {
+        const building = document.createElement("div");
+        const ceiling = document.createElement("div");
+        const topwall = document.createElement("div");
+        const leftwall = document.createElement("div");
+        const rightwall = document.createElement("div");
+        const bottomwall = document.createElement("div");
+        const floor = document.createElement("div");
+        const page = document.getElementById("page");
+
+        ceiling.style.backgroundImage = "url('images/foreground/terrible concrete.jpeg')";
         ceiling.style.position = "absolute"
-        ceiling.style.backgroundColor = "blue";
+        ceiling.style.backgroundSize = "100% 100%";
         ceiling.style.transformStyle = "preserve-3d";
-  	    //dynamic
-        ceiling.style.width = sizex+"px";
-        ceiling.style.height = sizey+"px";
-  	    ceiling.style.transform = "translate3d("+ (offsetx) +"px, "+ (offsety) +"px, "+ (howfarbackeverythingis + height) +"px) rotatex(0deg)"
-  	
-  	    //boilerplate
-        topwall.style.position = "absolute"
-        //topwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        ceiling.style.width = sizex + "px";
+        ceiling.style.height = sizey + "px";
+        ceiling.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety) + "px, " + (howfarbackeverythingis + height) + "px) rotatex(0deg)"
+
         topwall.style.backgroundColor = "red"; //backup
+        topwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        topwall.style.position = "absolute"
         topwall.style.transformOrigin = "top";
         topwall.style.transformStyle = "preserve-3d";
-  	    //dynamic
-        topwall.style.width = sizex+"px";
-        topwall.style.height = height+"px";
-        topwall.style.transform = "translate3d("+ (offsetx) +"px, "+ (offsety) +"px, "+ (howfarbackeverythingis) +"px) rotatex(90deg)"
-        //boilerplate
-        leftwall.style.position = "absolute"
-        //leftwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        topwall.style.width = sizex + "px";
+        topwall.style.height = height + "px";
+        topwall.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg)"
+        leftwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+
         leftwall.style.backgroundColor = "darkblue"; //backup
-        
+        leftwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        leftwall.style.position = "absolute"
         leftwall.style.transformOrigin = "top";
         leftwall.style.transformStyle = "preserve-3d";
-  	    //dynamic
-        leftwall.style.width = sizey+"px";
-        leftwall.style.height = height+"px";
-        leftwall.style.transform = "translate3d("+ (offsetx) +"px, "+ (offsety) +"px, "+ (howfarbackeverythingis) +"px) rotatex(90deg) rotatey(90deg)"
-          
-        page.appendChild(ceiling);
-	     	page.appendChild(topwall);
-	     	page.appendChild(leftwall);
+        leftwall.style.width = sizey + "px";
+        leftwall.style.height = height + "px";
+        leftwall.style.transform = "translate3d(" + (offsetx - sizey / 2) + "px, " + (offsety + sizey / 2) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg) rotatey(90deg)"
+
+        rightwall.style.backgroundColor = "lightblue"; //backup
+        rightwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        rightwall.style.position = "absolute"
+        rightwall.style.transformOrigin = "top";
+        rightwall.style.transformStyle = "preserve-3d";
+        rightwall.style.width = sizey + "px";
+        rightwall.style.height = height + "px";
+        rightwall.style.transform = "translate3d(" + ((offsetx - sizey / 2) + sizex) + "px, " + (offsety + sizey / 2) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg) rotatey(90deg)"
+
+        bottomwall.style.backgroundColor = "yellow"; //backup
+        bottomwall.style.backgroundImage = "url('images/foreground/bricks.png')";
+        bottomwall.style.transformOrigin = "top";
+        bottomwall.style.transformStyle = "preserve-3d";
+        bottomwall.style.width = sizex + "px";
+        bottomwall.style.height = height + "px";
+        bottomwall.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety + sizey) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg) rotatey(0deg)"
+
+        building.style.position = "absolute"
+        building.style.perspective = ""
+        page.appendChild(building);
+        building.setAttribute("id", "building"+buildingCount);
+        building.setAttribute("class", "building");
+        buildingCount += 1
+
+        building.appendChild(ceiling);
+        building.appendChild(topwall);
+        building.appendChild(leftwall);
+        building.appendChild(rightwall);
+        building.appendChild(bottomwall);
+        
+        floor.style.backgroundImage = "url('images/foreground/asphalt.png')";
+        floor.style.position = "absolute"
+        floor.style.backgroundSize = "300px 300px";
+        floor.style.transformStyle = "preserve-3d";
+        floor.style.width = "10000px";
+        floor.style.height = "10000px";
+        floor.style.transform = "translate3d(-500px, -500px, " + (howfarbackeverythingis) + "px) rotatex(0deg)"
+        
+        if (floorgenerated == false) {
+          page.appendChild(floor);
+          floorgenerated = true;
+        }
+        
       }
-	 
-      
+
     </script>
   </head>
+
   <body>
     <p id="extreme">city</p>
     <div id="page">
