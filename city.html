@@ -8,25 +8,24 @@
       }
 
       @keyframes perspec {
-        0% {perspective: 	500px;}
-        50% {perspective: 260px;}
-        100% {perspective: 500px;}
-      }
-
-      @keyframes perspec2 {
-        0% {transform: rotateX(2deg);}
-        50% {transform: rotateX(-13deg);}
-        100% {transform: rotateX(2deg);}
+        0% {perspective: 	1000px;}
+        50% {perspective: 360px;}
+        100% {perspective: 700px;}
       }
 
       @keyframes scroll {
         0% {background-position: 0px 0px;}
-        100% {background-position: 400px 0px;}
+        100% {background-position: -200px 200px;}
+      }
+
+      @keyframes windowscroll {
+        0% {background-position: 0px -10px;}
+        100% {background-position: 200px -10px;}
       }
 
       @keyframes rotate {
-        0% {transform: rotateZ(10deg);}
-        100% {transform: rotateZ(-10deg);}
+        0% {transform: rotateZ(1.5deg);}
+        100% {transform: rotateZ(-1.5deg);}
       }
 
       body {
@@ -40,12 +39,12 @@
 
       #page {
         width: 97%;
-        height: 90%;
+        height: calc(100% - 26px);
         background-color: lightgreen;
         left: 2%;
         top: 15px;
         perspective: 300px;
-        animation: rotate 0s linear alternate-reverse infinite;
+        animation: rotate 4s ease-in-out alternate-reverse infinite, perspec 5.33487s linear alternate-reverse infinite;
         transform-style: preserve-3d;
         perspective-origin: 50% 50%;
         overflow: scroll !important;
@@ -70,14 +69,30 @@
       }
 
       .building * {
-		transform-style: preserve-3d;
-		z-index: 1;
+        transform-style: preserve-3d;
+        z-index: 1;
       }
-	  
-    .building {
-	  z-index: 1;
-	  transform-style: preserve-3d;
-	}
+
+      .building {
+        z-index: 1;
+        transform-style: preserve-3d;
+      }
+
+      .wall {
+        animation: scroll 4s linear infinite;
+        background-size: 200px, 200px;
+        position: absolute;
+        transform-origin: top;
+        transform-style: preserve-3d;
+      }
+
+      .windows {
+        background-image: url('images/foreground/apartment windows.png');
+        //background-color: blue;
+        background-size: 200px 200px;
+        animation: windowscroll 3.2s linear infinite;
+      }
+
     </style>
     <script>
       function doorone() {
@@ -97,32 +112,55 @@
       }, false); //i could just do onload but i thought this was cooler
 
 
-      var howfarbackeverythingis = -200
+      var howfarbackeverythingis = -400
       var buildingCount = 0
 
       function buildingGenerator() {
-        //buildingFactory(size X, size Y, height, offset X,  offset Y)
-        buildingFactory(400, 400, 200, 100, 400)
-        buildingFactory(300, 380, 180, 1000, 50)
-        buildingFactory(300, 240, 180, 800, 850)
-        buildingFactory(400, 500, 280, 80, 900) //one below the top one
-        buildingFactory(300, 300, 250, 2000, 150)
-        buildingFactory(300, 300, 200, 1600, 500)
-        buildingFactory(300, 300, 200, 2000, 900)
-        buildingFactory(300, 300, 400, 1700, 1400)
+        //buildingFactory(size X, size Y, height, offset X,  offset Y, offset Z, Z index)
+        buildingFactory(400, 400, 200, 100, 400, 0, 1)
+        buildingFactory(300, 380, 180, 1000, 50, 0, 0)
+        buildingFactory(300, 540, 180, 800, 650, 0, 0)
+        
+        //weird wacko building
+        buildingFactory(400, 500, 280, 80, 900, 0, 0) //one below the top one
+        buildingFactory(420, 180, 120, 480, 1000, 140, 9) //bridge
+        buildingFactory(150, 160, 140, 740, 1010, 260, 9)
+
+        buildingFactory(300, 300, 250, 2000, 150, 0, 0)
+        buildingFactory(300, 300, 200, 1600, 500, 0, 0)
+        buildingFactory(300, 300, 200, 2000, 900, 0, 0)
+        buildingFactory(300, 300, 400, 1700, 1400, 0, 0)
+        
+        //farback skyscraper
+        buildingFactory(200, 200, 400, 800, 2000, 0, 1)
+        buildingFactory(150, 150, 200, 825, 2025, 400, 2)
       }
+      
+      var buildingtextures = ['images/foreground/bricks.png', 'images/foreground/old concrete 2.png', 'images/foreground/old concrete 3.jpeg', 'images/foreground/cardboard.jpeg', 'images/foreground/interior_stucco.png']
 
       var floorgenerated = false;
 
-      function buildingFactory(sizex, sizey, height, offsetx, offsety) {
-        const building = document.createElement("div");
+      //possibly use arrays instead of individual numbers for cleaner
+      function buildingFactory(sizex, sizey, height, offsetx, offsety, offsetz, setZindex) {
+        const windows1 = document.createElement("div");
+        const windows2 = document.createElement("div");
+        const windows3 = document.createElement("div");
+        const windows4 = document.createElement("div");
+        
         const ceiling = document.createElement("div");
         const topwall = document.createElement("div");
         const leftwall = document.createElement("div");
         const rightwall = document.createElement("div");
         const bottomwall = document.createElement("div");
+        
+        const building = document.createElement("div");
         const floor = document.createElement("div");
+        const sand = document.createElement("div");
+        
         const page = document.getElementById("page");
+
+        var textureRand = Math.floor(Math.random() * buildingtextures.length);
+        console.log(textureRand)
 
         ceiling.style.backgroundImage = "url('images/foreground/terrible concrete.jpeg')";
         ceiling.style.position = "absolute"
@@ -130,69 +168,105 @@
         ceiling.style.transformStyle = "preserve-3d";
         ceiling.style.width = sizex + "px";
         ceiling.style.height = sizey + "px";
-        ceiling.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety) + "px, " + (howfarbackeverythingis + height) + "px) rotatex(0deg)"
+        ceiling.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety) + "px, " + (howfarbackeverythingis + height + offsetz) + "px) rotatex(0deg)"
 
-        topwall.style.backgroundColor = "red"; //backup
-        topwall.style.backgroundImage = "url('images/foreground/bricks.png')";
-        topwall.style.position = "absolute"
-        topwall.style.transformOrigin = "top";
-        topwall.style.transformStyle = "preserve-3d";
+        topwall.style.backgroundImage = "url('"+buildingtextures[textureRand]+"')"
         topwall.style.width = sizex + "px";
         topwall.style.height = height + "px";
-        topwall.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg)"
-        leftwall.style.backgroundImage = "url('images/foreground/bricks.png')";
-
-        leftwall.style.backgroundColor = "darkblue"; //backup
-        leftwall.style.backgroundImage = "url('images/foreground/bricks.png')";
-        leftwall.style.position = "absolute"
-        leftwall.style.transformOrigin = "top";
-        leftwall.style.transformStyle = "preserve-3d";
+        topwall.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety) + "px, " + (howfarbackeverythingis + offsetz) + "px) rotatex(90deg)"
+        topwall.setAttribute("class", "wall");
+        
+        
+        leftwall.style.backgroundImage = "url('"+buildingtextures[textureRand]+"')"
         leftwall.style.width = sizey + "px";
         leftwall.style.height = height + "px";
-        leftwall.style.transform = "translate3d(" + (offsetx - sizey / 2) + "px, " + (offsety + sizey / 2) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg) rotatey(90deg)"
+        leftwall.style.transform = "translate3d(" + (offsetx - sizey / 2) + "px, " + (offsety + sizey / 2) + "px, " + (howfarbackeverythingis + offsetz) + "px) rotatex(90deg) rotatey(90deg)"
+        leftwall.setAttribute("class", "wall");
 
-        rightwall.style.backgroundColor = "lightblue"; //backup
-        rightwall.style.backgroundImage = "url('images/foreground/bricks.png')";
-        rightwall.style.position = "absolute"
-        rightwall.style.transformOrigin = "top";
-        rightwall.style.transformStyle = "preserve-3d";
+        rightwall.style.backgroundImage = "url('"+buildingtextures[textureRand]+"')"
         rightwall.style.width = sizey + "px";
         rightwall.style.height = height + "px";
-        rightwall.style.transform = "translate3d(" + ((offsetx - sizey / 2) + sizex) + "px, " + (offsety + sizey / 2) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg) rotatey(90deg)"
+        rightwall.style.transform = "translate3d(" + ((offsetx - sizey / 2) + sizex) + "px, " + (offsety + sizey / 2) + "px, " + (howfarbackeverythingis + offsetz) + "px) rotatex(90deg) rotatey(90deg)"
+        rightwall.setAttribute("class", "wall");
 
-        bottomwall.style.backgroundColor = "yellow"; //backup
-        bottomwall.style.backgroundImage = "url('images/foreground/bricks.png')";
-        bottomwall.style.transformOrigin = "top";
-        bottomwall.style.transformStyle = "preserve-3d";
+        bottomwall.style.backgroundImage = "url('"+buildingtextures[textureRand]+"')"
         bottomwall.style.width = sizex + "px";
         bottomwall.style.height = height + "px";
-        bottomwall.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety + sizey) + "px, " + (howfarbackeverythingis) + "px) rotatex(90deg) rotatey(0deg)"
+        bottomwall.style.transform = "translate3d(" + (offsetx) + "px, " + (offsety + sizey) + "px, " + (howfarbackeverythingis + offsetz) + "px) rotatex(90deg) rotatey(0deg)"
+        bottomwall.setAttribute("class", "wall");
+
+        windows1.style.width = "100%"
+        windows1.style.height = "100%"
+        windows1.setAttribute("class", "windows");
+
+        windows2.style.width = "100%"
+        windows2.style.height = "100%"
+        windows2.setAttribute("class", "windows");
+
+        windows3.style.width = "100%"
+        windows3.style.height = "100%"
+        windows3.setAttribute("class", "windows");
+
+        windows4.style.width = "100%"
+        windows4.style.height = "100%"
+        windows4.setAttribute("class", "windows"); //i couldnt find a better way to do this besides copy and pasting.
 
         building.style.position = "absolute"
-        building.style.perspective = ""
+        building.style.zIndex = setZindex
         page.appendChild(building);
         building.setAttribute("id", "building"+buildingCount);
         building.setAttribute("class", "building");
-        buildingCount += 1
 
         building.appendChild(ceiling);
         building.appendChild(topwall);
         building.appendChild(leftwall);
         building.appendChild(rightwall);
         building.appendChild(bottomwall);
+        topwall.appendChild(windows1)
+        leftwall.appendChild(windows2)
+        rightwall.appendChild(windows3)
+        bottomwall.appendChild(windows4)
         
         floor.style.backgroundImage = "url('images/foreground/asphalt.png')";
         floor.style.position = "absolute"
         floor.style.backgroundSize = "300px 300px";
         floor.style.transformStyle = "preserve-3d";
-        floor.style.width = "10000px";
-        floor.style.height = "10000px";
-        floor.style.transform = "translate3d(-500px, -500px, " + (howfarbackeverythingis) + "px) rotatex(0deg)"
+        floor.style.width = "4000px";
+        floor.style.height = "6000px";
+        floor.style.transform = "translate3d(-1000px, -1000px, " + (howfarbackeverythingis) + "px) rotatex(0deg)"
+        
+        sand.style.backgroundImage = "url('images/background/sand.jpg')";
+        sand.style.position = "absolute"
+        sand.style.backgroundSize = "300px 300px";
+        sand.style.transformStyle = "preserve-3d";
+        sand.style.width = "1400px";
+        sand.style.height = "1200px";
+        sand.style.transform = "translate3d(-1000px, -1000px, " + (howfarbackeverythingis) + "px) rotatex(0deg)"
+        sand.setAttribute("onclick", "doorone()");
+        
+        sand.style.backgroundImage = "url('images/background/sand.jpg')";
+        sand.style.position = "absolute"
+        sand.style.backgroundSize = "300px 300px";
+        sand.style.transformStyle = "preserve-3d";
+        sand.style.width = "1400px";
+        sand.style.height = "1200px";
+        sand.style.transform = "translate3d(-1000px, -1000px, " + (howfarbackeverythingis) + "px) rotatex(0deg)"
+        sand.setAttribute("onclick", "doorone()");
         
         if (floorgenerated == false) {
           page.appendChild(floor);
+          page.appendChild(sand);
           floorgenerated = true;
         }
+
+        var hueRand = Math.floor(Math.random() * 40)
+        var walls = building.querySelectorAll(".wall");
+
+        for (let i = 0; i < walls.length; i++) {
+          walls[i].style.filter = "hue-rotate("+hueRand+"deg)"
+        }
+
+        buildingCount += 1
         
       }
 
