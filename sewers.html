@@ -1,0 +1,159 @@
+<html>
+  <head>
+    <title>
+      sewers
+    </title>
+    <link rel="icon" href="images/favicon.gif" type="image/gif" />
+    <style>
+      @keyframes perspec {
+        0% {perspective: 1000px;}
+        100% {perspective: 800px;}
+      }
+       @keyframes scroll {
+        0% {background-position: 0px 0px;}
+        100% {background-position: -500px 0px;}
+      }
+      @keyframes radical {
+        0% {transform: rotate3d(1, 1, 1, 0deg);}
+        100% {transform: rotate3d(1, 1, 1, 360deg);}
+      }
+      
+      body {
+        background: #3C4D03;
+        transform-style: preserve-3d;
+      }
+	  
+	  *, page > * {
+	  position: absolute;
+	  transform-style: preserve-3d;
+	  }
+	  
+      #page {
+        transform: translate3d(400px, 00px, 0px);
+        animation: perspec 5s linear alternate-reverse infinite;
+        width: 1000px;
+        height: 1000px;
+		zoom: 40%;  
+		perspective-origin: 65% 90%;
+      }
+	  
+	  #pagebg {
+          //background: BLUE;
+          width: 100%;
+          height: 100%;
+		  transform: translate3d(0px, 0px, -3000px);
+		}
+	  
+      .door {
+        background-image: url('images/foreground/door.png');
+        background-size: 100% 100%;
+        width: 100px;
+        height: 100px;
+      }
+      #door1 {
+        width: 150px;
+        height: 200px;
+        transform: translate3d(480px, 360px, -150px) rotatey(90deg);
+        opacity: 0.6;
+        z-index: 1;
+      }
+	  .surface {
+          background: url('images/background/metal plate.png');
+          background-size: 50%, 500px;
+          width: 500px;
+          height: 2400px;
+		  animation: scroll 5s linear infinite;
+	  }
+		
+      
+	  #bottomleftwall {
+        transform: translate3d(0px, 200px, -1000px) rotatex(90deg) rotatey(225deg);
+        z-index: 2;
+      }
+	  #floor {
+        transform: translate3d(420px, 377px, -1000px) rotatex(90deg) scalex(-1);
+        z-index: 2;
+      }
+	  #bottomrightwall {
+        transform: translate3d(840px, 200px, -1000px) rotatex(90deg) rotatey(-225deg);
+        z-index: 2;
+      }
+	  #rightwall {
+        transform: translate3d(1010px, -225px, -1000px) rotatex(90deg) rotatey(90deg);
+        z-index: 2;
+      }
+	  #topleftwall {
+        transform: translate3d(0px, -650px, -1000px) rotatex(90deg) rotatey(-45deg);
+        z-index: 2;
+      }
+	  #roof {
+        transform: translate3d(420px, -825px, -1000px) rotatex(90deg);
+        z-index: 2;
+      }
+	  #toprightwall {
+        transform: translate3d(840px, -650px, -1000px) rotatex(90deg) rotatey(45deg);
+        z-index: 2;
+      }
+	  #leftwall {
+		transform: translate3d(-170px, -225px, -1000px) rotatex(90deg) rotatey(270deg);
+        z-index: 2;
+      }
+	  
+	  #metalbars {
+  	    width: 1300px;
+		height: 1500px;
+  	    transform: translate3d(0px, 300px, -300px);
+	    background-image: url('images/foreground/metal pipe spacing.png');
+	    background-size: 250px 100%;
+	    animation: scroll 3s linear reverse infinite, lightrotate 6.343s ease-in-out infinite; //make lightrotate animation
+	  }
+
+      #goop {
+        transform: translate3d(220px, 200px, -1000px) rotatex(90deg) rotatez(180deg);
+        z-index: 2;
+		background-image: url('images/foreground/goop.png');
+		opacity: .7;
+		width: 900px;
+          height: 2400px;
+		background-size: 100% 100%;
+      }
+
+      #extreme {
+        display: inline-block;
+        top: -6px;
+        z-index: 100;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        animation: radical 4s linear infinite;
+		transform-style: flat;
+      }
+    </style>
+    <script>
+      function door1() {
+        window.location.href = "city.html";
+      }
+      function door2() {
+        window.location.href = "placeholder.html";
+      }
+      function door3() {
+        window.location.href = "placeholder.html";
+      }
+    </script>
+  </head>
+  <body>
+    <span id="extreme">sewers</span>
+    <div id="page">
+	  <div id="leftwall" class="surface"></div>
+      <div id="bottomleftwall" class="surface"></div>
+      <div id="floor" class="surface"></div>
+	  <div id="bottomrightwall" class="surface"></div>
+      <div id="topleftwall" class="surface"></div>
+      <div id="roof" class="surface"></div>
+	  <div id="toprightwall" class="surface"></div>
+	  <div id="rightwall" class="surface"></div>
+      <div id="goop"></div>
+      <div id="pagebg"></div>
+      <div id="metalbars"></div>
+      <div id="door1" class="door" onclick="door1()"></div>
+    </div>
+  </body>
+</html>

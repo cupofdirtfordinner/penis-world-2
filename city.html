@@ -27,9 +27,16 @@
         0% {transform: rotateZ(1.5deg);}
         100% {transform: rotateZ(-1.5deg);}
       }
+	  
+	  @keyframes rotateHole {
+        0% {filter: contrast(100%);}
+        50% {filter: contrast(200%);}
+        100% {filter: contrast(100%);}
+      }
 
       body {
         background-color: green;
+		overflow: hidden;
       }
 
       body * {
@@ -100,7 +107,7 @@
       }
 
       function doortwo() {
-        window.location.href = "placeholder.html";
+        window.location.href = "sewers.html";
       }
 
       function doorthree() {
@@ -156,6 +163,7 @@
         const building = document.createElement("div");
         const floor = document.createElement("div");
         const sand = document.createElement("div");
+        const hole = document.createElement("div");
         
         const page = document.getElementById("page");
 
@@ -244,18 +252,20 @@
         sand.style.transform = "translate3d(-1000px, -1000px, " + (howfarbackeverythingis) + "px) rotatex(0deg)"
         sand.setAttribute("onclick", "doorone()");
         
-        sand.style.backgroundImage = "url('images/background/sand.jpg')";
-        sand.style.position = "absolute"
-        sand.style.backgroundSize = "300px 300px";
-        sand.style.transformStyle = "preserve-3d";
-        sand.style.width = "1400px";
-        sand.style.height = "1200px";
-        sand.style.transform = "translate3d(-1000px, -1000px, " + (howfarbackeverythingis) + "px) rotatex(0deg)"
-        sand.setAttribute("onclick", "doorone()");
+        hole.style.backgroundImage = "url('images/foreground/manhole.png')";
+        hole.style.position = "absolute"
+        hole.style.backgroundSize = "100% 100%";
+        hole.style.transformStyle = "preserve-3d";
+        hole.style.width = "400px";
+        hole.style.height = "400px";
+        hole.style.transform = "translate3d(1400px, 900px, " + (howfarbackeverythingis) + "px)"
+        hole.setAttribute("onclick", "doortwo()");
+		hole.style.animation = "rotateHole 4s ease-in-out infinite"
         
         if (floorgenerated == false) {
           page.appendChild(floor);
           page.appendChild(sand);
+          page.appendChild(hole);
           floorgenerated = true;
         }
 
